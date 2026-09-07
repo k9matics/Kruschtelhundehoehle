@@ -4,52 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Kruschtelhundehoehle Dashboard</title>
-  <meta name="description" content="Kruschtelhundehöhle als sauberes Dashboard mit Magnettafel, Journal und Comic-Begrüßung.">
+  <meta name="description" content="Kruschtelhundehöhle als sauberes Dashboard mit Magnettafel, Journal, YouTube und TikTok.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    :root,[data-theme="light"]{
-      --bg:#151417;--bg2:#1d1c20;--surface:#232229;--surface-2:#2b2931;--surface-3:#33303a;
-      --text:#f6f0ea;--muted:#c7bec0;--faint:#9a9093;--line:rgba(255,255,255,.11);--line-2:rgba(255,255,255,.18);
-      --pink:#d86d96;--green:#86a86d;--red:#c96060;--warm:#f1b671;--paper:#f4ebe2;--paper-text:#2b2222;
-      --board:#26242b;--board-2:#302d36;--magnet:#121318;--shadow:0 16px 40px rgba(0,0,0,.28);--shadow-lg:0 28px 70px rgba(0,0,0,.38)
-    }
-    [data-theme="dark"]{
-      --bg:#0f0f12;--bg2:#16161a;--surface:#1c1c22;--surface-2:#23232b;--surface-3:#2c2b34;
-      --text:#f8f1eb;--muted:#cbbfc1;--faint:#908588;--line:rgba(255,255,255,.09);--line-2:rgba(255,255,255,.16);
-      --pink:#db6a98;--green:#7ea36e;--red:#c45a61;--warm:#efb46c;--paper:#f5ecdf;--paper-text:#2b211f;
-      --board:#1b1a20;--board-2:#222128;--magnet:#0b0c10;--shadow:0 16px 42px rgba(0,0,0,.34);--shadow-lg:0 32px 80px rgba(0,0,0,.48)
-    }
+    :root,[data-theme="light"]{--bg:#151417;--bg2:#1d1c20;--surface:#232229;--surface-2:#2b2931;--surface-3:#33303a;--text:#f6f0ea;--muted:#c7bec0;--faint:#9a9093;--line:rgba(255,255,255,.11);--line-2:rgba(255,255,255,.18);--pink:#d86d96;--green:#86a86d;--red:#c96060;--warm:#f1b671;--paper:#f4ebe2;--paper-text:#2b2222;--board:#26242b;--board-2:#302d36;--magnet:#121318;--shadow:0 16px 40px rgba(0,0,0,.28);--shadow-lg:0 28px 70px rgba(0,0,0,.38)}
+    [data-theme="dark"]{--bg:#0f0f12;--bg2:#16161a;--surface:#1c1c22;--surface-2:#23232b;--surface-3:#2c2b34;--text:#f8f1eb;--muted:#cbbfc1;--faint:#908588;--line:rgba(255,255,255,.09);--line-2:rgba(255,255,255,.16);--pink:#db6a98;--green:#7ea36e;--red:#c45a61;--warm:#efb46c;--paper:#f5ecdf;--paper-text:#2b211f;--board:#1b1a20;--board-2:#222128;--magnet:#0b0c10;--shadow:0 16px 42px rgba(0,0,0,.34);--shadow-lg:0 32px 80px rgba(0,0,0,.48)}
     :root{--xs:clamp(.75rem,.72rem + .2vw,.875rem);--sm:clamp(.9rem,.84rem + .2vw,1rem);--base:clamp(1rem,.96rem + .25vw,1.125rem);--lg:clamp(1.15rem,1.05rem + .45vw,1.45rem);--xl:clamp(1.85rem,1.2rem + 1.3vw,2.8rem);--hero:clamp(2.5rem,1.35rem + 3.5vw,4.8rem);--display:"Baloo 2",system-ui,sans-serif;--body:"Nunito",system-ui,sans-serif;--hand:"Caveat",cursive;--max:1320px}
-    *{box-sizing:border-box} html,body{margin:0;min-height:100%} html{scroll-behavior:smooth;color-scheme:dark light} body{font-family:var(--body);font-size:var(--base);line-height:1.6;color:var(--text);background:radial-gradient(circle at 15% 12%,rgba(219,106,152,.08),transparent 18%),radial-gradient(circle at 80% 10%,rgba(126,163,110,.08),transparent 20%),radial-gradient(circle at 45% 100%,rgba(239,180,108,.08),transparent 26%),linear-gradient(180deg,var(--bg2),var(--bg));position:relative}
-    body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.26;background:radial-gradient(circle at 14% 22%,rgba(255,255,255,.028) 0 2px,transparent 3px),radial-gradient(circle at 68% 32%,rgba(255,255,255,.02) 0 2px,transparent 3px),radial-gradient(circle at 28% 74%,rgba(0,0,0,.22) 0 4px,transparent 5px),linear-gradient(135deg,transparent 0 10%,rgba(255,255,255,.015) 10.5%,transparent 11% 24%,rgba(0,0,0,.05) 24.5%,transparent 25%);background-size:160px 160px,220px 220px,280px 280px,340px 340px;mix-blend-mode:soft-light}
-    img{display:block;max-width:100%;height:auto} a{text-decoration:none;color:inherit} button,input,textarea{font:inherit;color:inherit} button{cursor:pointer;background:none;border:none} input,textarea{width:100%;padding:12px 14px;border-radius:16px;border:1px solid var(--line-2);background:rgba(255,255,255,.04)} textarea{min-height:110px;resize:vertical}
-    .shell{max-width:var(--max);margin:0 auto;padding:18px 16px 72px;position:relative}
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 18px}.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;color:var(--pink)} .eyebrow{margin:0 0 4px;font-size:var(--xs);text-transform:uppercase;letter-spacing:.1em;color:var(--faint)} .brand h1{margin:0;font-family:var(--display);font-size:clamp(1.5rem,1rem + 1.1vw,2.2rem);line-height:.92}.sub{margin:2px 0 0;color:var(--muted);font-size:var(--sm)}
+    *{box-sizing:border-box} html,body{margin:0;min-height:100%} html{scroll-behavior:smooth;color-scheme:dark light} body{font-family:var(--body);font-size:var(--base);line-height:1.6;color:var(--text);background:radial-gradient(circle at 15% 12%,rgba(219,106,152,.08),transparent 18%),radial-gradient(circle at 80% 10%,rgba(126,163,110,.08),transparent 20%),radial-gradient(circle at 45% 100%,rgba(239,180,108,.08),transparent 26%),linear-gradient(180deg,var(--bg2),var(--bg));position:relative} body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.26;background:radial-gradient(circle at 14% 22%,rgba(255,255,255,.028) 0 2px,transparent 3px),radial-gradient(circle at 68% 32%,rgba(255,255,255,.02) 0 2px,transparent 3px),radial-gradient(circle at 28% 74%,rgba(0,0,0,.22) 0 4px,transparent 5px),linear-gradient(135deg,transparent 0 10%,rgba(255,255,255,.015) 10.5%,transparent 11% 24%,rgba(0,0,0,.05) 24.5%,transparent 25%);background-size:160px 160px,220px 220px,280px 280px,340px 340px;mix-blend-mode:soft-light}
+    img{display:block;max-width:100%;height:auto} a{text-decoration:none;color:inherit} button,input,textarea{font:inherit;color:inherit} button{cursor:pointer;background:none;border:none} input,textarea{width:100%;padding:12px 14px;border-radius:16px;border:1px solid var(--line-2);background:rgba(255,255,255,.04)}
+    .shell{max-width:var(--max);margin:0 auto;padding:18px 16px 72px;position:relative}.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 18px}.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;color:var(--pink)} .eyebrow{margin:0 0 4px;font-size:var(--xs);text-transform:uppercase;letter-spacing:.1em;color:var(--faint)} .brand h1{margin:0;font-family:var(--display);font-size:clamp(1.5rem,1rem + 1.1vw,2.2rem);line-height:.92}.sub{margin:2px 0 0;color:var(--muted);font-size:var(--sm)}
     .toggle,.pill,.chip,.mini{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015)),var(--surface-2);box-shadow:var(--shadow)}
-    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:stretch}.hero-card,.figure-card,.board-card,.card,.journal-card,.day-card,.clips-card,.gallery-card{position:relative;border-radius:28px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),var(--surface);box-shadow:var(--shadow-lg);overflow:hidden}
-    .hero-card,.figure-card,.card,.day-card,.clips-card,.journal-card,.gallery-card{padding:20px}
-    .hero-card::after,.journal-card::after,.board-card::after{content:"";position:absolute;inset:auto 0 0 0;height:36%;background:radial-gradient(circle at 18% 100%,rgba(219,106,152,.12),transparent 36%),radial-gradient(circle at 78% 100%,rgba(239,180,108,.11),transparent 30%);pointer-events:none}
-    .hero-title{margin:0;font-family:var(--display);font-size:var(--hero);line-height:.88;max-width:8ch}.copy{color:var(--muted);max-width:62ch}.hand{font-family:var(--hand);font-size:1.2rem;color:var(--warm);margin-top:10px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 16px;border-radius:16px;font-weight:800;border:1px solid transparent;box-shadow:var(--shadow)} .btn-primary{background:var(--pink);color:#fff}.btn-green{background:var(--green);color:#152014}.btn-ghost{background:rgba(255,255,255,.04);color:var(--text);border-color:var(--line)}
+    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:stretch}.hero-card,.figure-card,.board-card,.card,.journal-card,.day-card,.clips-card,.gallery-card{position:relative;border-radius:28px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),var(--surface);box-shadow:var(--shadow-lg);overflow:hidden}.hero-card,.figure-card,.card,.day-card,.clips-card,.journal-card,.gallery-card{padding:20px}.hero-card::after,.journal-card::after,.board-card::after{content:"";position:absolute;inset:auto 0 0 0;height:36%;background:radial-gradient(circle at 18% 100%,rgba(219,106,152,.12),transparent 36%),radial-gradient(circle at 78% 100%,rgba(239,180,108,.11),transparent 30%);pointer-events:none}
+    .hero-title{margin:0;font-family:var(--display);font-size:var(--hero);line-height:.88;max-width:8ch}.copy{color:var(--muted);max-width:62ch}.hand{font-family:var(--hand);font-size:1.2rem;color:var(--warm);margin-top:10px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 16px;border-radius:16px;font-weight:800;border:1px solid transparent;box-shadow:var(--shadow)} .btn-primary{background:var(--pink);color:#fff}.btn-green{background:var(--green);color:#152014}.btn-ghost{background:rgba(255,255,255,.04);color:var(--text);border-color:var(--line)}
     .figure-card{display:grid;gap:12px;background:linear-gradient(180deg,rgba(219,106,152,.06),rgba(255,255,255,.015)),var(--surface-2)} .figure-frame{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--surface-3)} .figure-frame img{width:100%;aspect-ratio:4/5;object-fit:cover} .speech{padding:14px 16px;border-radius:20px;background:rgba(255,255,255,.05);border:1px dashed rgba(255,255,255,.18);font-family:var(--hand);font-size:1.15rem}
-    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:24px}.stack{display:grid;gap:18px}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:12px}.section-head h2{margin:0;font-family:var(--display);font-size:var(--xl);line-height:.94}
-    .board-card{padding:18px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01)),var(--board)} .board-surface{position:relative;min-height:680px;border-radius:24px;padding:18px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01)),linear-gradient(180deg,var(--board-2),var(--board));overflow:hidden}
-    .board-surface::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:26px 26px;opacity:.32;pointer-events:none}
-    .board-surface::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 18%,rgba(239,180,108,.06),transparent 18%),radial-gradient(circle at 83% 16%,rgba(219,106,152,.06),transparent 16%),radial-gradient(circle at 32% 84%,rgba(126,163,110,.06),transparent 18%);pointer-events:none}
-    .board-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}.chip.active{outline:2px solid var(--pink)}
-    .lane-labels{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}.lane{padding:12px 14px;border-radius:18px;background:rgba(255,255,255,.04);border:1px dashed rgba(255,255,255,.14)} .lane strong{display:block}.lane span{display:block;color:var(--muted);font-size:var(--sm)}
-    .note{position:absolute;width:190px;min-height:136px;padding:14px 14px 16px;border-radius:20px;box-shadow:0 16px 32px rgba(0,0,0,.18);user-select:none;touch-action:none;cursor:grab;border:1px solid rgba(0,0,0,.06)} .note.dragging{cursor:grabbing;z-index:30;box-shadow:0 24px 44px rgba(0,0,0,.28)} .note::before{content:"";position:absolute;top:10px;right:12px;width:12px;height:12px;border-radius:50%;background:var(--magnet);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 1px 2px rgba(0,0,0,.3)} .note h3{margin:0 0 8px;font-size:var(--sm)} .note p{margin:0;font-size:var(--sm);line-height:1.35}.note small{display:block;margin-top:10px;opacity:.72}
-    .note-termine{background:linear-gradient(180deg,#f3c7d8,#efb7cb);color:#3b2230;transform:rotate(-2.3deg)} .note-todos{background:linear-gradient(180deg,#d8ebcc,#cbe0bd);color:#23301f;transform:rotate(1.8deg)} .note-ideen{background:linear-gradient(180deg,#f7ddaf,#efd29a);color:#43331a;transform:rotate(-1deg)} .note-einkauf{background:linear-gradient(180deg,#f8f0e6,#efe2d1);color:#342822;transform:rotate(1.2deg)} .note-medien{background:linear-gradient(180deg,#f0c0c5,#e4adb4);color:#402428;transform:rotate(-3.4deg)}
-    .note .scribble{font-family:var(--hand);font-size:1rem;margin-top:8px;opacity:.82}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:24px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:12px}.section-head h2{margin:0;font-family:var(--display);font-size:var(--xl);line-height:.94}.board-card{padding:18px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01)),var(--board)} .board-surface{position:relative;min-height:680px;border-radius:24px;padding:18px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01)),linear-gradient(180deg,var(--board-2),var(--board));overflow:hidden}
+    .board-surface::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:26px 26px;opacity:.32;pointer-events:none}.board-surface::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 18%,rgba(239,180,108,.06),transparent 18%),radial-gradient(circle at 83% 16%,rgba(219,106,152,.06),transparent 16%),radial-gradient(circle at 32% 84%,rgba(126,163,110,.06),transparent 18%);pointer-events:none}
+    .board-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}.chip.active{outline:2px solid var(--pink)} .lane-labels{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}.lane{padding:12px 14px;border-radius:18px;background:rgba(255,255,255,.04);border:1px dashed rgba(255,255,255,.14)} .lane strong{display:block}.lane span{display:block;color:var(--muted);font-size:var(--sm)}
+    .note{position:absolute;width:190px;min-height:136px;padding:14px 14px 16px;border-radius:20px;box-shadow:0 16px 32px rgba(0,0,0,.18);user-select:none;touch-action:none;cursor:grab;border:1px solid rgba(0,0,0,.06)} .note.dragging{cursor:grabbing;z-index:30;box-shadow:0 24px 44px rgba(0,0,0,.28)} .note::before{content:"";position:absolute;top:10px;right:12px;width:12px;height:12px;border-radius:50%;background:var(--magnet);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 1px 2px rgba(0,0,0,.3)} .note h3{margin:0 0 8px;font-size:var(--sm)} .note p{margin:0;font-size:var(--sm);line-height:1.35}.note small{display:block;margin-top:10px;opacity:.72} .note .scribble{font-family:var(--hand);font-size:1rem;margin-top:8px;opacity:.82}
+    .note-termine{background:linear-gradient(180deg,#f3c7d8,#efb7cb);color:#3b2230;transform:rotate(-2.3deg)} .note-todos{background:linear-gradient(180deg,#d8ebcc,#cbe0bd);color:#23301f;transform:rotate(1.8deg)} .note-ideen{background:linear-gradient(180deg,#f7ddaf,#efd29a);color:#43331a;transform:rotate(-1deg)} .note-einkauf{background:linear-gradient(180deg,#f8f0e6,#efe2d1);color:#342822;transform:rotate(1.2deg)} .note-medien{background:linear-gradient(180deg,#f0c0c5,#e4adb4);color:#402428;transform:rotate(-3.4deg)} .note-tiktok{background:linear-gradient(180deg,#f3c7ea,#ebb0d0);color:#452538;transform:rotate(2.2deg)}
     .sidepanel{display:grid;gap:18px}.card h3,.journal-card h3,.day-card h3,.clips-card h3,.gallery-card h3{margin:0;font-size:var(--lg)} .rule{height:1px;margin:10px 0 12px;background:linear-gradient(90deg,transparent,var(--line),transparent)} .tags{display:flex;gap:10px;flex-wrap:wrap}.tag{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-size:var(--xs);font-weight:800}
-    .journal-q{padding:12px 0;border-top:1px solid var(--line)} .journal-q:first-of-type{padding-top:0;border-top:0}.answer{margin-top:8px;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-family:var(--hand);font-size:1.08rem}
-    .week{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}.weekday{padding:12px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.04);text-align:left}.weekday.active{outline:2px solid var(--green)} .weekday strong,.weekday span{display:block}.weekday span{color:var(--muted);font-size:var(--xs)}
-    .clip-form{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}.clip-list{display:grid;gap:10px;margin-top:12px}.clip-item{padding:12px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--line)} .clip-item strong,.clip-item span,.clip-item small{display:block}.clip-item small{color:var(--muted)}
-    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.shot{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line)} .shot img{width:100%;aspect-ratio:4/5;object-fit:cover}.shot small{position:absolute;left:8px;bottom:8px;padding:6px 9px;border-radius:999px;background:rgba(15,15,18,.72);border:1px solid rgba(255,255,255,.12);font-size:12px}
-    .footer{margin-top:24px;padding:18px;border-radius:24px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),var(--surface-2);box-shadow:var(--shadow)}
+    .journal-q{padding:12px 0;border-top:1px solid var(--line)} .journal-q:first-of-type{padding-top:0;border-top:0}.answer{margin-top:8px;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-family:var(--hand);font-size:1.08rem}.week{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}.weekday{padding:12px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.04);text-align:left}.weekday.active{outline:2px solid var(--green)} .weekday strong,.weekday span{display:block}.weekday span{color:var(--muted);font-size:var(--xs)}
+    .clip-form{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}.clip-list{display:grid;gap:10px;margin-top:12px}.clip-item{padding:12px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--line)} .clip-item strong,.clip-item span,.clip-item small{display:block}.clip-item small{color:var(--muted)} .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.shot{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line)} .shot img{width:100%;aspect-ratio:4/5;object-fit:cover}.shot small{position:absolute;left:8px;bottom:8px;padding:6px 9px;border-radius:999px;background:rgba(15,15,18,.72);border:1px solid rgba(255,255,255,.12);font-size:12px}.footer{margin-top:24px;padding:18px;border-radius:24px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),var(--surface-2);box-shadow:var(--shadow)}
     @media (max-width:1120px){.hero,.grid,.gallery-grid{grid-template-columns:1fr}.clip-form,.week,.lane-labels{grid-template-columns:1fr}.board-surface{min-height:760px}} @media (max-width:720px){.shell{padding-bottom:40px}.note{width:160px;min-height:128px}}
   </style>
 </head>
@@ -57,49 +34,29 @@
   <div class="shell">
     <header class="topbar">
       <div class="brand">
-        <svg class="logo" viewBox="0 0 72 72" aria-label="Kruschtelhundehöhle Logo" role="img">
-          <path d="M12 46c3-15 13-25 25-25 7 0 12 2 16 7 2-7 7-12 14-12" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-          <path d="M22 46h28" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-          <circle cx="29" cy="30" r="2.5" fill="currentColor"/>
-        </svg>
-        <div>
-          <p class="eyebrow">Kruschtelhundehöhle</p>
-          <h1>Magnettafel-Dashboard</h1>
-          <p class="sub">pinnwandmäßig · ruhiger · schöner · dashboardartig</p>
-        </div>
+        <svg class="logo" viewBox="0 0 72 72" aria-label="Kruschtelhundehöhle Logo" role="img"><path d="M12 46c3-15 13-25 25-25 7 0 12 2 16 7 2-7 7-12 14-12" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="M22 46h28" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><circle cx="29" cy="30" r="2.5" fill="currentColor"/></svg>
+        <div><p class="eyebrow">Kruschtelhundehöhle</p><h1>Magnettafel-Dashboard</h1><p class="sub">mit YouTube und TikTok auf der Pinnwand</p></div>
       </div>
       <button class="toggle" data-theme-toggle aria-label="Theme wechseln">☾</button>
     </header>
 
     <section class="hero">
       <article class="hero-card">
-        <p class="eyebrow">Neue Richtung</p>
-        <h2 class="hero-title">Mehr Magnettafel. Weniger Material-Overload.</h2>
-        <p class="copy">Diese Version baut die Kruschtelhundehöhle als nutzbares Dashboard: eine große Magnetwand für Termine, To-dos, Ideen, Einkauf und Medien, dazu ein ruhiges Tagesjournal und eine kleine comicartige Begrüßung.</p>
-        <p class="hand">„Heute nur einsammeln, nicht perfekt machen.“</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="#board">Zur Pinnwand</a>
-          <a class="btn btn-green" href="#journal">Zum Journal</a>
-          <a class="btn btn-ghost" href="#clips">Zu Clips</a>
-        </div>
+        <p class="eyebrow">Neue Medienfläche</p>
+        <h2 class="hero-title">YouTube mit Timestamp. TikTok als Clip-Karte.</h2>
+        <p class="copy">Die Magnettafel sammelt jetzt beide Formate: YouTube bleibt punktgenau mit Startzeit, TikTok kommt als eigener Cliptyp dazu und landet als separate Karte auf dem Board.</p>
+        <p class="hand">„Alles Wichtige hängt jetzt an einer Wand.“</p>
+        <div class="actions"><a class="btn btn-primary" href="#board">Zur Pinnwand</a><a class="btn btn-green" href="#clips">Zu Medien</a></div>
       </article>
       <aside class="figure-card">
-        <div class="figure-frame">
-          <img src="./IMG-20260904-WA0003.jpg" alt="Charakterbild als weicher Stilanker" width="843" height="1499" loading="eager">
-        </div>
-        <div class="speech">„Ich pass auf, dass das Board gemütlich bleibt.“</div>
+        <div class="figure-frame"><img src="./IMG-20260904-WA0003.jpg" alt="Charakterbild als weicher Stilanker" width="843" height="1499" loading="eager"></div>
+        <div class="speech">„Kurze Clips dürfen jetzt auch mit an die Wand.“</div>
       </aside>
     </section>
 
     <section class="grid">
       <div>
-        <div class="section-head" id="board">
-          <div>
-            <p class="eyebrow">Dashboardkern</p>
-            <h2>Magnettafel</h2>
-          </div>
-          <span class="pill">drag & focus</span>
-        </div>
+        <div class="section-head" id="board"><div><p class="eyebrow">Dashboardkern</p><h2>Magnettafel</h2></div><span class="pill">youtube · tiktok</span></div>
         <article class="board-card">
           <div class="board-toolbar">
             <button class="chip active" data-filter="all">Alles</button>
@@ -107,96 +64,52 @@
             <button class="chip" data-filter="todos">To-dos</button>
             <button class="chip" data-filter="ideen">Ideen</button>
             <button class="chip" data-filter="einkauf">Einkauf</button>
-            <button class="chip" data-filter="medien">Medien</button>
+            <button class="chip" data-filter="medien">YouTube</button>
+            <button class="chip" data-filter="tiktok">TikTok</button>
             <button class="mini" id="resetBoard">Reset</button>
           </div>
-          <div class="lane-labels">
-            <div class="lane"><strong>Links</strong><span>Termine & To-dos</span></div>
-            <div class="lane"><strong>Mitte</strong><span>Ideen & Medien</span></div>
-            <div class="lane"><strong>Rechts</strong><span>Einkauf & Sammeln</span></div>
-          </div>
+          <div class="lane-labels"><div class="lane"><strong>Links</strong><span>Termine & To-dos</span></div><div class="lane"><strong>Mitte</strong><span>Ideen & Videos</span></div><div class="lane"><strong>Rechts</strong><span>Einkauf & Sammlungen</span></div></div>
           <div class="board-surface" id="boardSurface"></div>
         </article>
       </div>
-
       <aside class="sidepanel">
-        <article class="card">
-          <p class="eyebrow">Details</p>
-          <h3 id="detailTitle">Angepinnter Fokus</h3>
-          <div class="rule"></div>
-          <p class="copy" id="detailText">Klicke auf eine Karte auf der Magnetwand, um den Inhalt hier größer zu sehen.</p>
-          <div class="tags" id="detailTags"></div>
-          <div class="actions"><a id="detailLink" class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer" style="display:none;">Öffnen</a></div>
-        </article>
-
-        <article class="journal-card" id="journal">
-          <p class="eyebrow">Tagesjournal</p>
-          <h3>3 Fragen</h3>
-          <div class="rule"></div>
-          <div class="journal-q"><strong>Was war heute schön?</strong><div class="answer" contenteditable="true" data-journal="0">Ein Board, das nicht schreit, sondern atmet.</div></div>
-          <div class="journal-q"><strong>Was braucht morgen zuerst Liebe?</strong><div class="answer" contenteditable="true" data-journal="1">Nur den ersten kleinen Schritt und nicht die ganze Woche auf einmal.</div></div>
-          <div class="journal-q"><strong>Was möchte ich festhalten?</strong><div class="answer" contenteditable="true" data-journal="2">Die Mischung aus Klarheit, Spiel und Persönlichkeit.</div></div>
-          <div class="actions"><button class="btn btn-green" id="saveJournal">Journal speichern</button></div>
-          <p class="sub" id="journalStatus">Antworten bleiben lokal im Browser.</p>
-        </article>
-
-        <article class="day-card">
-          <p class="eyebrow">Wochenblick</p>
-          <h3 id="dayTitle">Montag</h3>
-          <div class="rule"></div>
-          <div class="week" id="week"></div>
-          <p class="copy" id="dayCopy" style="margin-top:12px;">Leicht anfangen und nur das Wichtigste anpinnen.</p>
-        </article>
+        <article class="card"><p class="eyebrow">Details</p><h3 id="detailTitle">Angepinnter Fokus</h3><div class="rule"></div><p class="copy" id="detailText">Klicke auf eine Karte auf der Magnetwand, um den Inhalt hier größer zu sehen.</p><div class="tags" id="detailTags"></div><div class="actions"><a id="detailLink" class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer" style="display:none;">Öffnen</a></div></article>
+        <article class="journal-card" id="journal"><p class="eyebrow">Tagesjournal</p><h3>3 Fragen</h3><div class="rule"></div><div class="journal-q"><strong>Was war heute schön?</strong><div class="answer" contenteditable="true" data-journal="0">Ein Board, das nicht schreit, sondern atmet.</div></div><div class="journal-q"><strong>Was braucht morgen zuerst Liebe?</strong><div class="answer" contenteditable="true" data-journal="1">Nur den ersten kleinen Schritt und nicht die ganze Woche auf einmal.</div></div><div class="journal-q"><strong>Was möchte ich festhalten?</strong><div class="answer" contenteditable="true" data-journal="2">Die Mischung aus Klarheit, Spiel und Persönlichkeit.</div></div><div class="actions"><button class="btn btn-green" id="saveJournal">Journal speichern</button></div><p class="sub" id="journalStatus">Antworten bleiben lokal im Browser.</p></article>
+        <article class="day-card"><p class="eyebrow">Wochenblick</p><h3 id="dayTitle">Montag</h3><div class="rule"></div><div class="week" id="week"></div><p class="copy" id="dayCopy" style="margin-top:12px;">Leicht anfangen und nur das Wichtigste anpinnen.</p></article>
       </aside>
     </section>
 
     <section class="grid" style="margin-top:18px; grid-template-columns:.95fr 1.05fr;">
       <article class="clips-card" id="clips">
         <p class="eyebrow">Medienkarte</p>
-        <h3>YouTube mit Timestamp</h3>
+        <h3>YouTube und TikTok</h3>
         <div class="rule"></div>
         <div class="clip-form">
-          <label><span class="eyebrow">Link</span><input id="videoUrl" placeholder="https://www.youtube.com/watch?v=... oder https://youtu.be/..." /></label>
+          <label><span class="eyebrow">Link</span><input id="videoUrl" placeholder="YouTube oder TikTok Link" /></label>
           <label><span class="eyebrow">Min</span><input id="videoMinute" type="number" min="0" value="0" /></label>
           <label><span class="eyebrow">Sek</span><input id="videoSecond" type="number" min="0" max="59" value="0" /></label>
         </div>
-        <div class="actions">
-          <label style="flex:1 1 240px;"><span class="eyebrow">Titel</span><input id="videoTitle" placeholder="Lieblingsmoment" /></label>
-          <button class="btn btn-primary" id="addClip">An Magnetwand pinnen</button>
-        </div>
-        <p class="sub" id="clipStatus">Der Clip erscheint als Medienkarte auf der Pinnwand.</p>
-        <div class="clip-list">
-          <div class="clip-item"><strong>Abendfenster</strong><span>Beispielclip bei 1:02</span><small>kann als Medienkarte gepinnt werden</small></div>
-        </div>
+        <div class="actions"><label style="flex:1 1 240px;"><span class="eyebrow">Titel</span><input id="videoTitle" placeholder="Lieblingsmoment" /></label><button class="btn btn-primary" id="addClip">An Magnetwand pinnen</button></div>
+        <p class="sub" id="clipStatus">YouTube wird mit Timestamp angepinnt, TikTok als eigene Clip-Karte. [web:905][web:906]</p>
+        <div class="clip-list"><div class="clip-item"><strong>YouTube</strong><span>mit Startzeit wie bisher</span><small>ideal für gezielte Momente</small></div><div class="clip-item"><strong>TikTok</strong><span>als Link-Karte auf dem Board</span><small>akzeptiert reguläre TikTok-Post-Links mit /video/ID</small></div></div>
       </article>
-
-      <article class="gallery-card">
-        <p class="eyebrow">Bilderwand</p>
-        <h3>Persönliche Fläche</h3>
-        <div class="rule"></div>
-        <div class="gallery-grid">
-          <figure class="shot"><img src="./IMG-20260826-WA0007.jpg" alt="Rudelbild auf der Bilderwand" width="804" height="1428" loading="lazy"><small>Rudel</small></figure>
-          <figure class="shot"><img src="./IMG-20260903-WA0010.jpg" alt="Hundebild als gemütlicher Moment" width="804" height="1428" loading="lazy"><small>Kuscheln</small></figure>
-          <figure class="shot"><img src="./IMG-20260906-WA0003.jpg" alt="Weiteres persönliches Bild für das Dashboard" width="804" height="1428" loading="lazy"><small>Alltag</small></figure>
-        </div>
-      </article>
+      <article class="gallery-card"><p class="eyebrow">Bilderwand</p><h3>Persönliche Fläche</h3><div class="rule"></div><div class="gallery-grid"><figure class="shot"><img src="./IMG-20260826-WA0007.jpg" alt="Rudelbild auf der Bilderwand" width="804" height="1428" loading="lazy"><small>Rudel</small></figure><figure class="shot"><img src="./IMG-20260903-WA0010.jpg" alt="Hundebild als gemütlicher Moment" width="804" height="1428" loading="lazy"><small>Kuscheln</small></figure><figure class="shot"><img src="./IMG-20260906-WA0003.jpg" alt="Weiteres persönliches Bild für das Dashboard" width="804" height="1428" loading="lazy"><small>Alltag</small></figure></div></article>
     </section>
 
-    <div class="footer">
-      Diese neue Richtung setzt auf ein pinnwandmäßiges Dashboard mit ruhiger Magnettafel, reduzierter Fantasy-Stimmung und dem 3-Fragen-Journal im Alltag. [cite:630][cite:629][cite:631][file:844]
-    </div>
+    <div class="footer">Diese Version ergänzt die Magnettafel um TikTok-Karten zusätzlich zu YouTube-Timestamp-Karten und hält das Dashboard dabei als ruhige Pinnwandstruktur zusammen. [file:845][cite:630]</div>
   </div>
 
   <script>
-    const storageKey='kruschtel-magnet-dashboard-v1';
+    const storageKey='kruschtel-magnet-dashboard-tiktok-v1';
     const toggle=document.querySelector('[data-theme-toggle]');
     const defaults=[
       {id:'n1',type:'termine',title:'Mi 19:00 Gassi',text:'Ruhige Abendrunde mit Pfotenzeit.',tags:['termin','hund'],x:22,y:34,scribble:'fix und freundlich'},
       {id:'n2',type:'todos',title:'2 Nachrichten beantworten',text:'Nur die zwei wichtigsten zuerst.',tags:['todo','fokus'],x:234,y:52,scribble:'nicht alles auf einmal'},
       {id:'n3',type:'ideen',title:'Herbstalbum',text:'Fotos und kleine Notizen als warmes Kapitel sammeln.',tags:['idee','album'],x:416,y:96,scribble:'später ausbauen'},
       {id:'n4',type:'einkauf',title:'Hafermilch · Snacks · Tape',text:'Kleine Einkaufsliste für Alltag und Board.',tags:['liste','einkauf'],x:610,y:48,scribble:'kurz reinflitzen'},
-      {id:'n5',type:'medien',title:'Comic-Begrüßung',text:'Kleines Begrüßungsfeld mit gemütlichem Ton.',tags:['medien','stimmung'],x:364,y:286,scribble:'spricht zuerst'},
-      {id:'n6',type:'todos',title:'Journal ausfüllen',text:'Abends drei kurze Antworten reichen.',tags:['journal','abend'],x:80,y:250,scribble:'klein halten'}
+      {id:'n5',type:'medien',title:'YouTube-Moment',text:'Öffnet den Clip direkt beim Startpunkt.',tags:['youtube','clip'],url:'https://www.youtube.com/watch?v=jfKfPfyJRdk&t=62s',x:364,y:286,scribble:'direkt ab hier'},
+      {id:'n6',type:'todos',title:'Journal ausfüllen',text:'Abends drei kurze Antworten reichen.',tags:['journal','abend'],x:80,y:250,scribble:'klein halten'},
+      {id:'n7',type:'tiktok',title:'TikTok merken',text:'Kurzer Clip als eigener Fund auf dem Board.',tags:['tiktok','clip'],url:'https://www.tiktok.com/@scout2015/video/6718335390845095173',x:590,y:272,scribble:'kurzer fund'}
     ];
     const weekData=[
       {name:'Mo',full:'Montag',text:'Leicht anfangen und nur das Wichtigste anpinnen.'},
@@ -224,8 +137,9 @@
     function updateDay(){document.getElementById('dayTitle').textContent=weekData[state.activeDay].full; document.getElementById('dayCopy').textContent=weekData[state.activeDay].text;}
     document.getElementById('saveJournal').addEventListener('click',()=>{state.journal=[...document.querySelectorAll('[data-journal]')].map(el=>el.textContent.trim()); save(); document.getElementById('journalStatus').textContent='Journal lokal gespeichert.';});
     function parseVideoId(url){try{const u=new URL(url); if(u.hostname.includes('youtu.be')) return u.pathname.replace('/','').trim(); return u.searchParams.get('v')||'';}catch(e){return '';}}
+    function parseTikTok(url){try{const u=new URL(url); const match=u.pathname.match(/\/video\/(\d+)/); if(u.hostname.includes('tiktok.com') && match) return `https://www.tiktok.com${u.pathname}`; return '';}catch(e){return '';}}
     function ts(seconds){const m=Math.floor(seconds/60); const s=String(seconds%60).padStart(2,'0'); return `${m}:${s}`;}
-    document.getElementById('addClip').addEventListener('click',()=>{const url=document.getElementById('videoUrl').value.trim(); const title=document.getElementById('videoTitle').value.trim()||'Lieblingsmoment'; const minute=Math.max(0,Number(document.getElementById('videoMinute').value)||0); const second=Math.max(0,Math.min(59,Number(document.getElementById('videoSecond').value)||0)); const id=parseVideoId(url); if(!id){document.getElementById('clipStatus').textContent='Link nicht erkannt.'; return;} const start=minute*60+second; state.notes.push({id:'m'+Date.now(),type:'medien',title, text:`Öffnet den Clip bei ${ts(start)}.`,tags:['youtube','clip'],url:`https://www.youtube.com/watch?v=${id}&t=${start}s`,x:380,y:420,scribble:'direkt ab hier'}); document.getElementById('clipStatus').textContent=`Clip angepinnt bei ${ts(start)}.`; document.getElementById('videoUrl').value=''; document.getElementById('videoTitle').value=''; document.getElementById('videoMinute').value='0'; document.getElementById('videoSecond').value='0'; renderBoard(); save();});
+    document.getElementById('addClip').addEventListener('click',()=>{const url=document.getElementById('videoUrl').value.trim(); const title=document.getElementById('videoTitle').value.trim()||'Lieblingsmoment'; const minute=Math.max(0,Number(document.getElementById('videoMinute').value)||0); const second=Math.max(0,Math.min(59,Number(document.getElementById('videoSecond').value)||0)); const tiktokUrl=parseTikTok(url); if(tiktokUrl){ state.notes.push({id:'t'+Date.now(),type:'tiktok',title,text:'Öffnet den TikTok-Clip direkt aus der Pinnwand.',tags:['tiktok','clip'],url:tiktokUrl,x:420,y:410,scribble:'kurzclip'}); document.getElementById('clipStatus').textContent='TikTok-Karte angepinnt.'; document.getElementById('videoUrl').value=''; document.getElementById('videoTitle').value=''; renderBoard(); save(); return; } const id=parseVideoId(url); if(!id){document.getElementById('clipStatus').textContent='Link nicht erkannt. Für TikTok nutze einen regulären Link mit /video/ID. [web:906][web:913]'; return;} const start=minute*60+second; state.notes.push({id:'m'+Date.now(),type:'medien',title,text:`Öffnet den Clip bei ${ts(start)}.`,tags:['youtube','clip'],url:`https://www.youtube.com/watch?v=${id}&t=${start}s`,x:380,y:420,scribble:'direkt ab hier'}); document.getElementById('clipStatus').textContent=`YouTube-Clip angepinnt bei ${ts(start)}.`; document.getElementById('videoUrl').value=''; document.getElementById('videoTitle').value=''; document.getElementById('videoMinute').value='0'; document.getElementById('videoSecond').value='0'; renderBoard(); save();});
     load(); applyTheme(); renderWeek(); updateDay(); renderBoard(); document.querySelectorAll('[data-journal]').forEach((el,i)=>{el.textContent=state.journal[i]||el.textContent; el.addEventListener('input',()=>{state.journal[i]=el.textContent.trim();});});
   </script>
 </body>
