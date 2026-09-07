@@ -4,263 +4,176 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Kruschtelhundehoehle</title>
-  <meta name="description" content="Klickbare Kruschtelhundehoehle mit Pinnwand, Journal und Rudel-Momenten.">
+  <meta name="description" content="Kruschtelhundehöhle – cozy Pinnwand, Journal, Rudel und gemeinsamer Kalender in einer warm-chaotischen Seite.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&family=Patrick+Hand&display=swap" rel="stylesheet">
   <style>
-    :root,[data-theme="light"]{--bg:#e9ddd7;--bg2:#d8cbc5;--stone:#c8b8b0;--surface:#faf3ef;--surface2:#f1e7e1;--surface3:#e6d7d0;--paper:#fff7f2;--text:#322426;--muted:#756467;--faint:#a48f92;--line:rgba(50,36,38,.11);--line2:rgba(50,36,38,.18);--rose:#ca7189;--rose2:#e19ab0;--berry:#7e3949;--moss:#80996f;--gold:#bf9b67;--tape:#e9ded0;--shadow1:0 3px 7px rgba(52,26,34,.08);--shadow2:0 20px 46px rgba(52,26,34,.15)}
-    [data-theme="dark"]{--bg:#120d10;--bg2:#1a1416;--stone:#251b1f;--surface:#231a1e;--surface2:#2d2328;--surface3:#392c33;--paper:#34282e;--text:#f7ece9;--muted:#cfbcc0;--faint:#948086;--line:rgba(247,236,233,.10);--line2:rgba(247,236,233,.18);--rose:#db7490;--rose2:#c65f78;--berry:#7f3344;--moss:#869d77;--gold:#c29a65;--tape:#9d8c7a;--shadow1:0 4px 10px rgba(0,0,0,.22);--shadow2:0 24px 52px rgba(0,0,0,.38)}
-    :root{--r1:12px;--r2:18px;--r3:24px;--r4:32px;--xs:clamp(.75rem,.72rem + .2vw,.875rem);--sm:clamp(.875rem,.82rem + .2vw,1rem);--base:clamp(1rem,.96rem + .2vw,1.125rem);--lg:clamp(1.125rem,1rem + .45vw,1.45rem);--xl:clamp(1.7rem,1.2rem + 1.2vw,2.5rem);--title:clamp(1.3rem,1.08rem + 1vw,1.9rem);--body:"Nunito",system-ui,sans-serif;--display:"Baloo 2","Nunito",system-ui,sans-serif;--hand:"Patrick Hand",cursive;--max:620px;--nav:88px}
-    *{box-sizing:border-box} html,body{margin:0;min-height:100%} html{color-scheme:dark light;scroll-behavior:smooth} body{font-family:var(--body);font-size:var(--base);line-height:1.5;color:var(--text);background:radial-gradient(circle at 18% 12%,rgba(219,116,144,.08),transparent 18%),radial-gradient(circle at 86% 10%,rgba(134,157,119,.08),transparent 22%),linear-gradient(180deg,var(--bg2),var(--bg))} body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.52;background:radial-gradient(circle at 18% 20%,rgba(255,255,255,.05) 0 2px,transparent 3px),radial-gradient(circle at 62% 28%,rgba(255,255,255,.04) 0 3px,transparent 4px),radial-gradient(circle at 35% 72%,rgba(0,0,0,.24) 0 4px,transparent 5px),radial-gradient(circle at 78% 80%,rgba(255,255,255,.03) 0 3px,transparent 4px),radial-gradient(circle at 12% 88%,rgba(0,0,0,.2) 0 5px,transparent 6px);background-size:130px 130px,180px 180px,210px 210px,170px 170px,250px 250px;mix-blend-mode:soft-light} body::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;background:linear-gradient(140deg,transparent 0 20%,rgba(255,255,255,.03) 21% 22%,transparent 23% 52%,rgba(0,0,0,.05) 53% 54%,transparent 55% 100%);background-size:260px 260px}.app{max-width:var(--max);min-height:100dvh;margin:0 auto;padding:14px 14px calc(var(--nav) + 24px + env(safe-area-inset-bottom,0px))}.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:16px}.kicker{margin:0 0 6px;font-size:var(--xs);color:var(--faint);text-transform:uppercase;letter-spacing:.08em}.sub{margin:2px 0 0;color:var(--muted);font-size:var(--sm)}.brand{display:flex;align-items:center;gap:12px}.brand h1{margin:0;font-family:var(--display);font-size:var(--xl);line-height:.92}.mark{width:38px;height:38px;color:var(--rose)}button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}img{display:block;max-width:100%;height:auto}.toggle,.chip,.tag{min-height:42px;padding:10px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);box-shadow:var(--shadow1)}.main,.stack{display:grid;gap:18px}.hero,.note-card,.photo,.board,.journal,.memory,.avatar-card,.sticker-cloud,.detail-sheet{position:relative;overflow:visible;border:1px solid var(--line)}.hero{border-radius:34px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),var(--surface);box-shadow:var(--shadow2);padding:16px;transform:rotate(-.4deg)}.hero-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:12px;align-items:stretch}.avatar-card{border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01)),var(--surface2);box-shadow:var(--shadow1);padding:10px;display:grid;gap:10px;transform:rotate(-2deg)}.avatar-card::before,.photo::before,.note-card::before,.memory::before,.detail-sheet::before{content:"";position:absolute;top:-10px;left:22px;width:52px;height:18px;border-radius:4px;background:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,.18)),var(--tape);opacity:.9;box-shadow:0 2px 3px rgba(0,0,0,.08)}.avatar-frame{aspect-ratio:4/5;border-radius:18px;overflow:hidden;border:1px solid rgba(247,236,233,.10);background:var(--surface3)}.avatar-frame img{width:100%;height:100%;object-fit:cover;object-position:center top}.hero-panel{display:flex;flex-direction:column;justify-content:space-between;border-radius:26px;padding:16px;background:linear-gradient(180deg,rgba(219,116,144,.08),transparent 32%),linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),var(--surface2);box-shadow:var(--shadow1);transform:rotate(1deg)}.label{margin:0 0 6px;font-size:var(--xs);color:var(--faint);text-transform:uppercase;letter-spacing:.08em}.hero-title,.screen-title{margin:0;font-family:var(--display);line-height:.95}.hero-title{font-size:clamp(1.9rem,1.35rem + 1vw,2.55rem);max-width:10ch}.screen-title{font-size:var(--xl)}.copy,.muted{color:var(--muted)}.note{margin:10px 0 0;color:var(--rose);font-family:var(--hand);font-size:1.15rem}.row,.tagrow,.sticker-row,.filter-row{display:flex;gap:10px;flex-wrap:wrap}.row{margin-top:14px}.btn{min-height:44px;padding:12px 15px;border-radius:16px;border:1px solid var(--line);background:var(--surface3);font-weight:800;box-shadow:var(--shadow1)}.btn-primary{background:linear-gradient(180deg,var(--rose),var(--rose2));color:#250e15;border-color:transparent}.btn-moss{background:linear-gradient(180deg,#90a786,var(--moss));color:#152014;border-color:transparent}.btn.active,.chip.active,.sticker.active{outline:2px solid var(--rose)}.shelf{display:grid;gap:12px;padding:12px;border-radius:30px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.008)),var(--stone);border:1px solid var(--line)}.head{display:flex;justify-content:space-between;align-items:end;gap:10px}.head p{margin:0}.photo-rail{display:grid;grid-template-columns:1fr 1fr;gap:14px}.photo{border-radius:22px;background:var(--surface);box-shadow:var(--shadow2)}.photo:nth-child(1){transform:rotate(-1.8deg)}.photo:nth-child(2){transform:rotate(1.4deg)}.photo img{width:100%;aspect-ratio:4/5;object-fit:cover}.caption{padding:12px 14px}.caption strong{display:block;font-size:var(--sm)}.caption span{display:block;color:var(--muted);font-size:var(--sm);margin-top:4px}.note-card{padding:16px;border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01)),var(--paper);box-shadow:var(--shadow1);transform:rotate(-.9deg)}.rule{height:1px;background:var(--line);margin:10px 0 12px}.tag{font-size:var(--xs);font-weight:800}.board-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.board{padding:14px;border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),var(--surface);box-shadow:var(--shadow2);transform:rotate(-.6deg)}.board-side{display:grid;gap:12px}.sticky{padding:14px;border-radius:18px;box-shadow:var(--shadow1);border:1px dashed rgba(255,255,255,.18);position:relative;transition:transform .18s ease, box-shadow .18s ease}.sticky::after{content:"";position:absolute;top:10px;right:14px;width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,.7);box-shadow:0 1px 2px rgba(0,0,0,.25)}.sticky:hover,.sticky:active{transform:translateY(-2px) scale(1.01)}.sticky h4{margin:0 0 8px;font-size:var(--sm)}.sticky ul{margin:0;padding-left:18px}.sticky li{margin:0 0 6px}.sticky-pink{background:rgba(219,116,144,.18);transform:rotate(-1.4deg)}.sticky-green{background:rgba(134,157,119,.20);transform:rotate(1.2deg)}.sticky-gold{background:rgba(194,154,101,.22);transform:rotate(-.7deg)}.sticky-rose{background:rgba(198,95,120,.16);transform:rotate(1.8deg)}.sticker-cloud{padding:14px;border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.01)),var(--surface2);box-shadow:var(--shadow1);transform:rotate(.8deg)}.sticker{display:inline-flex;align-items:center;justify-content:center;padding:10px 12px;border-radius:16px;font-family:var(--hand);font-size:1rem;border:1px solid var(--line);background:rgba(255,255,255,.06);box-shadow:var(--shadow1);transition:transform .18s ease}.sticker:nth-child(1){transform:rotate(-8deg)}.sticker:nth-child(2){transform:rotate(4deg)}.sticker:nth-child(3){transform:rotate(-4deg)}.sticker:nth-child(4){transform:rotate(7deg)}.journal{padding:16px;border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01)),var(--paper);box-shadow:var(--shadow2);transform:rotate(.4deg)}.q{padding:12px 0;border-top:1px solid var(--line)}.q:first-of-type{border-top:0;padding-top:0}.answer{margin-top:8px;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-family:var(--hand);font-size:1.08rem;color:var(--text);min-height:60px}.answer.is-editing{outline:2px solid var(--moss)}.timeline{display:grid;gap:14px}.memory{padding:16px;border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),var(--surface);box-shadow:var(--shadow2);transition:transform .18s ease}.memory:nth-child(odd){transform:rotate(-.8deg)}.memory:nth-child(even){transform:rotate(.9deg)}.memory-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}.preview{overflow:hidden;border-radius:18px;border:1px solid rgba(247,236,233,.08);margin-bottom:12px;background:var(--surface2)}.preview img{width:100%;aspect-ratio:4/3;object-fit:cover}.detail-sheet{padding:16px;border-radius:26px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01)),var(--paper);box-shadow:var(--shadow2)}.detail-sheet[hidden]{display:none}.nav{position:fixed;left:max(10px,env(safe-area-inset-left,0px));right:max(10px,env(safe-area-inset-right,0px));bottom:10px;max-width:calc(var(--max) - 20px);margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:10px 10px calc(10px + env(safe-area-inset-bottom,0px));border-radius:28px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.012)),color-mix(in srgb,var(--surface) 92%,black 8%);border:1px solid var(--line2);box-shadow:var(--shadow2)}.navbtn{min-height:56px;border-radius:18px;display:grid;place-items:center;gap:3px;color:var(--faint)}.navbtn.active{color:var(--text);background:rgba(219,116,144,.13);box-shadow:inset 0 0 0 1px rgba(219,116,144,.22)}.navlabel{font-size:var(--xs);font-weight:800}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media (max-width:520px){.hero-grid,.photo-rail,.board-layout{grid-template-columns:1fr}}
+    :root,[data-theme="light"]{--bg:#ede3de;--bg2:#dfd2cc;--stone:#ccbdb6;--stone2:#bca9a1;--surface:#fbf4f0;--surface2:#f5ebe5;--surface3:#eadbd3;--paper:#fff8f4;--text:#302325;--muted:#75666a;--faint:#aa9495;--line:rgba(48,35,37,.11);--line2:rgba(48,35,37,.18);--rose:#d57794;--rose2:#e9a0b8;--berry:#7f3248;--moss:#7d9670;--gold:#c59f67;--chalk:#f6ece8;--tape:#eadfce;--shadow1:0 3px 8px rgba(52,26,34,.08);--shadow2:0 22px 48px rgba(52,26,34,.14)}
+    [data-theme="dark"]{--bg:#120d10;--bg2:#1a1416;--stone:#241b1f;--stone2:#34282d;--surface:#231a1e;--surface2:#2c2327;--surface3:#382c32;--paper:#34282e;--text:#f8edeb;--muted:#cfbdc0;--faint:#968187;--line:rgba(248,237,235,.10);--line2:rgba(248,237,235,.18);--rose:#dd7894;--rose2:#ca637d;--berry:#7d3344;--moss:#8aa07c;--gold:#c69e68;--chalk:#efe2de;--tape:#a1907e;--shadow1:0 4px 10px rgba(0,0,0,.22);--shadow2:0 28px 56px rgba(0,0,0,.36)}
+    :root{--xs:clamp(.75rem,.72rem + .22vw,.875rem);--sm:clamp(.875rem,.84rem + .2vw,1rem);--base:clamp(1rem,.96rem + .25vw,1.125rem);--lg:clamp(1.15rem,1rem + .45vw,1.45rem);--xl:clamp(1.8rem,1.2rem + 1.2vw,2.9rem);--hero:clamp(2.45rem,1.3rem + 3.8vw,5rem);--body:"Nunito",system-ui,sans-serif;--display:"Baloo 2","Nunito",system-ui,sans-serif;--hand:"Patrick Hand",cursive;--max:1140px}
+    *{box-sizing:border-box} html,body{margin:0;min-height:100%} html{scroll-behavior:smooth;color-scheme:dark light} body{font-family:var(--body);font-size:var(--base);line-height:1.6;color:var(--text);background:radial-gradient(circle at 16% 10%,rgba(221,120,148,.08),transparent 20%),radial-gradient(circle at 84% 8%,rgba(138,160,124,.09),transparent 20%),linear-gradient(180deg,var(--bg2),var(--bg))} body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.5;background:radial-gradient(circle at 20% 18%,rgba(255,255,255,.05) 0 2px,transparent 3px),radial-gradient(circle at 60% 24%,rgba(255,255,255,.04) 0 3px,transparent 4px),radial-gradient(circle at 32% 70%,rgba(0,0,0,.22) 0 4px,transparent 5px),radial-gradient(circle at 80% 78%,rgba(255,255,255,.03) 0 3px,transparent 4px),radial-gradient(circle at 10% 88%,rgba(0,0,0,.18) 0 5px,transparent 6px);background-size:130px 130px,180px 180px,210px 210px,170px 170px,250px 250px;mix-blend-mode:soft-light} body::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.14;background:linear-gradient(140deg,transparent 0 20%,rgba(255,255,255,.03) 21% 22%,transparent 23% 52%,rgba(0,0,0,.05) 53% 54%,transparent 55% 100%);background-size:260px 260px} img{display:block;max-width:100%;height:auto} a{text-decoration:none;color:inherit} button{font:inherit;color:inherit;background:none;border:none;cursor:pointer} .container{max-width:var(--max);margin:0 auto;padding:18px 16px 80px}.top{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:6px 0 18px}.brand{display:flex;align-items:center;gap:12px}.mark{width:42px;height:42px;color:var(--rose)} .kicker{margin:0 0 4px;font-size:var(--xs);color:var(--faint);text-transform:uppercase;letter-spacing:.09em}.brand h1{margin:0;font-family:var(--display);font-size:clamp(1.55rem,1.1rem + 1vw,2.2rem);line-height:.95}.sub{margin:2px 0 0;font-size:var(--sm);color:var(--muted)} .toggle,.pill,.chip{min-height:42px;padding:10px 14px;border-radius:999px;border:1px solid var(--line2);background:rgba(255,255,255,.04);box-shadow:var(--shadow1)} .hero{display:grid;grid-template-columns:1.08fr .92fr;gap:18px;align-items:stretch;margin-top:8px}.panel,.photo-card,.paper,.pinboard,.journal,.calendar-teaser,.comic{position:relative;border:1px solid var(--line);box-shadow:var(--shadow2)} .panel{border-radius:38px;padding:22px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),var(--surface);transform:rotate(-.5deg)} .hero-copy{border-radius:32px;padding:22px;background:linear-gradient(180deg,rgba(221,120,148,.08),transparent 35%),linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),var(--surface2);transform:rotate(.8deg)} .hero-title{margin:0;font-family:var(--display);font-size:var(--hero);line-height:.88;max-width:9ch}.copy{color:var(--muted);max-width:56ch}.note{margin:10px 0 0;font-family:var(--hand);font-size:1.16rem;color:var(--rose)} .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 16px;border-radius:16px;border:1px solid var(--line);background:var(--surface3);box-shadow:var(--shadow1);font-weight:800}.btn-primary{background:linear-gradient(180deg,var(--rose),var(--rose2));color:#2b0d16;border-color:transparent}.btn-moss{background:linear-gradient(180deg,#98ac8f,var(--moss));color:#172113;border-color:transparent}.grid-two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}.photo-card{border-radius:28px;background:var(--surface);overflow:hidden}.photo-card:nth-child(1){transform:rotate(-1.4deg)}.photo-card:nth-child(2){transform:rotate(1.3deg)} .photo-card::before,.paper::before,.calendar-teaser::before,.comic::before{content:"";position:absolute;top:-10px;left:24px;width:56px;height:18px;border-radius:4px;background:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,.18)),var(--tape);opacity:.92;box-shadow:0 2px 3px rgba(0,0,0,.08)} .photo-card img{width:100%;aspect-ratio:4/5;object-fit:cover}.caption{padding:13px 15px}.caption strong{display:block;font-size:var(--sm)} .caption span{display:block;margin-top:4px;color:var(--muted);font-size:var(--sm)} .section{margin-top:28px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:12px}.section-head h2{margin:0;font-family:var(--display);font-size:var(--xl);line-height:.94}.paper{border-radius:28px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.01)),var(--paper);transform:rotate(-.7deg)} .paper h3,.comic h3,.calendar-teaser h3,.journal h3{margin:0;font-size:var(--lg)} .rule{height:1px;background:var(--line);margin:10px 0 12px}.tagrow{display:flex;gap:10px;flex-wrap:wrap}.tag{padding:8px 11px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-size:var(--xs);font-weight:800} .pinboard-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.pinboard{border-radius:32px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.008)),var(--stone)} .pin-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.sticky{padding:14px;border-radius:18px;border:1px dashed rgba(255,255,255,.16);box-shadow:var(--shadow1);position:relative}.sticky::after{content:"";position:absolute;top:10px;right:12px;width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,.75);box-shadow:0 1px 2px rgba(0,0,0,.22)} .sticky h4{margin:0 0 8px;font-size:var(--sm)} .sticky ul{margin:0;padding-left:18px}.sticky li{margin-bottom:5px}.s1{background:rgba(221,120,148,.18);transform:rotate(-2deg)}.s2{background:rgba(138,160,124,.2);transform:rotate(1.5deg)}.s3{background:rgba(198,158,104,.2);transform:rotate(-.9deg)}.s4{background:rgba(202,99,125,.15);transform:rotate(1.8deg)} .comic{border-radius:28px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01)),var(--surface2);transform:rotate(.8deg)} .comic-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.bubble{padding:12px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-family:var(--hand);font-size:1.08rem;min-height:110px} .calendar-teaser{border-radius:28px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01)),var(--surface)} .mini-calendar{border-radius:20px;border:1px solid var(--line);background:var(--surface2);padding:14px;display:grid;gap:12px}.mini-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.day,.wd{display:grid;place-items:center;min-height:36px;border-radius:12px;font-size:var(--xs)} .wd{color:var(--faint);font-weight:800;text-transform:uppercase}.day{background:rgba(255,255,255,.04);border:1px solid transparent}.day.mark{background:rgba(221,120,148,.16);border-color:rgba(221,120,148,.28)}.day.soft{background:rgba(138,160,124,.14)} .journal{border-radius:28px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.01)),var(--paper);transform:rotate(.45deg)} .question{padding:12px 0;border-top:1px solid var(--line)} .question:first-of-type{border-top:0;padding-top:0}.answer{margin-top:8px;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-family:var(--hand);font-size:1.08rem;color:var(--text)} .footer-note{margin-top:28px;padding:18px;border-radius:24px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.008)),var(--stone2);box-shadow:var(--shadow1)} @media (max-width:920px){.hero,.pinboard-wrap,.grid-two,.comic-strip{grid-template-columns:1fr}.pin-grid{grid-template-columns:1fr 1fr}} @media (max-width:580px){.pin-grid,.days{grid-template-columns:1fr 1fr}.days{grid-template-columns:repeat(7,1fr)}.container{padding-bottom:44px}}
   </style>
 </head>
 <body>
-  <div class="app">
+  <div class="container">
     <header class="top">
-      <div>
-        <p class="kicker">Kruschtelhundehöhle</p>
-        <div class="brand">
-          <svg class="mark" viewBox="0 0 72 72" aria-label="Kruschtelhundehöhle Logo" role="img">
-            <path d="M13 47c2-15 12-26 25-26 7 0 12 2 16 7 2-8 8-13 15-13" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-            <path d="M21 47h28" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-            <circle cx="28" cy="30" r="2.5" fill="currentColor"/>
-          </svg>
-          <div>
-            <h1>Pinnwandhöhle</h1>
-            <p class="sub">klickbar, sammelig und ein bisschen kruschdelig</p>
-          </div>
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 72 72" aria-label="Kruschtelhundehöhle Logo" role="img">
+          <path d="M13 47c2-15 12-26 25-26 7 0 12 2 16 7 2-8 8-13 15-13" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+          <path d="M21 47h28" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="28" cy="30" r="2.5" fill="currentColor"/>
+        </svg>
+        <div>
+          <p class="kicker">Kruschtelhundehöhle</p>
+          <h1>Pinnwandhöhle</h1>
+          <p class="sub">cozy chaos · vulkanstein · journal · rudel</p>
         </div>
       </div>
       <button class="toggle" data-theme-toggle aria-label="Zu hellem Modus wechseln">☾</button>
     </header>
 
-    <main id="app" class="main"></main>
+    <section class="hero">
+      <div class="panel">
+        <p class="kicker">Comic-Begrüßung</p>
+        <h2 class="hero-title">Hier darf alles an die Wand.</h2>
+        <p class="copy">Kruschtelhundehöhle ist als gemütliche Sammelseite gedacht: Termine, To-dos, Einkauf, Ideen, Hunde, kleine Erinnerungen und am Abend drei ruhige Fragen.</p>
+        <p class="note">mehr höhle als dashboard, mehr sammeln als sortieren</p>
+        <div class="row">
+          <a class="btn btn-primary" href="#pinnwand">Zur Pinnwand</a>
+          <a class="btn btn-moss" href="#journal">Zum Journal</a>
+        </div>
+      </div>
+      <div class="hero-copy">
+        <div class="photo-card" style="transform:rotate(-1.3deg); margin-bottom:14px;">
+          <img src="./IMG-20260904-WA0003.jpg" alt="Zentrale Figur der Kruschtelhundehöhle" width="843" height="1499" loading="eager">
+          <div class="caption"><strong>Leitfigur</strong><span>aus deinem Charakter abgeleitete Hauptpräsenz der Seite</span></div>
+        </div>
+        <p class="note">kleine heldin mit zetteln, pfoten und krümeln</p>
+      </div>
+    </section>
 
-    <nav class="nav" aria-label="Hauptnavigation">
-      <button class="navbtn active" data-route="home"><span>⌂</span><span class="navlabel">Home</span></button>
-      <button class="navbtn" data-route="board"><span>⌘</span><span class="navlabel">Board</span></button>
-      <button class="navbtn" data-route="journal"><span>✎</span><span class="navlabel">Journal</span></button>
-      <button class="navbtn" data-route="moments"><span>♡</span><span class="navlabel">Momente</span></button>
-      <button class="navbtn" data-route="dogs"><span>🐾</span><span class="navlabel">Rudel</span></button>
-    </nav>
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Angepinnte Stimmung</p>
+          <h2>Rudel & Momente</h2>
+        </div>
+        <span class="pill">leicht schief · warm · echt</span>
+      </div>
+      <div class="grid-two">
+        <article class="photo-card">
+          <img src="./IMG-20260826-WA0007.jpg" alt="Rudelbild für die Pinnwandhöhle" width="804" height="1428" loading="lazy">
+          <div class="caption"><strong>Rudelstart</strong><span>Gemeinsame Hauptkarte für Nähe, Alltag und Teamgefühl.</span></div>
+        </article>
+        <article class="photo-card">
+          <img src="./IMG-20260903-WA0010.jpg" alt="Hundebereich mit ruhiger Stimmung" width="804" height="1428" loading="lazy">
+          <div class="caption"><strong>Kuschelecke</strong><span>Der Hundebereich darf weich und behütet wirken.</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="pinnwand">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Sammeln statt glätten</p>
+          <h2>Pinnwand</h2>
+        </div>
+        <span class="pill">termine · sticker · ideen</span>
+      </div>
+      <div class="pinboard-wrap">
+        <article class="pinboard">
+          <div class="pin-grid">
+            <div class="sticky s1"><h4>Termine</h4><ul><li>Mittwoch 19:00 Gassi</li><li>Donnerstag Telefonat</li><li>Wochenende planen</li></ul></div>
+            <div class="sticky s2"><h4>To-dos</h4><ul><li>Zwei Antworten schreiben</li><li>Hundesachen prüfen</li><li>Foto wählen</li></ul></div>
+            <div class="sticky s3"><h4>Einkauf</h4><ul><li>Hafermilch</li><li>Snacks</li><li>Klebeband</li></ul></div>
+            <div class="sticky s4"><h4>Ideen</h4><ul><li>Herbstalbum</li><li>Pfotenkartei</li><li>Comic-Intro ausbauen</li></ul></div>
+          </div>
+        </article>
+        <div style="display:grid; gap:18px;">
+          <article class="comic">
+            <p class="kicker">Mini-Comic</p>
+            <h3>Begrüßung in drei Kästchen</h3>
+            <div class="rule"></div>
+            <div class="comic-strip">
+              <div class="bubble">„Oh! Noch ein Zettel.“</div>
+              <div class="bubble">„Pack ihn an die Wand, wir finden ihn später wieder.“</div>
+              <div class="bubble">„Und dann noch kurz die drei Abendfragen.“</div>
+            </div>
+          </article>
+          <article class="paper">
+            <h3>Sticker-Stimmung</h3>
+            <div class="rule"></div>
+            <div class="tagrow"><span class="tag">🐾 pfote</span><span class="tag">♡ warm</span><span class="tag">★ wow</span><span class="tag">☕ pause</span></div>
+            <p class="note">kleine dinge, die alles persönlicher machen</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Gemeinsam planen</p>
+          <h2>Kalenderbereich</h2>
+        </div>
+        <span class="pill">firebase-ready</span>
+      </div>
+      <article class="calendar-teaser">
+        <h3>Gemeinsamer Google Kalender</h3>
+        <div class="rule"></div>
+        <div class="grid-two" style="margin-top:0;">
+          <div class="mini-calendar">
+            <div class="mini-top"><strong>September</strong><span class="chip">Berlin</span></div>
+            <div class="days">
+              <div class="wd">M</div><div class="wd">D</div><div class="wd">M</div><div class="wd">D</div><div class="wd">F</div><div class="wd">S</div><div class="wd">S</div>
+              <div class="day"></div><div class="day mark">1</div><div class="day">2</div><div class="day soft">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div>
+              <div class="day">7</div><div class="day mark">8</div><div class="day">9</div><div class="day">10</div><div class="day soft">11</div><div class="day">12</div><div class="day">13</div>
+              <div class="day">14</div><div class="day">15</div><div class="day mark">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day soft">20</div>
+            </div>
+          </div>
+          <div class="paper" style="transform:rotate(.7deg);">
+            <h3>Was später dazukommt</h3>
+            <div class="rule"></div>
+            <p class="copy">Der echte eingebettete Kalender und Firebase-Login können im nächsten Schritt direkt in diese Seite übernommen werden. Die Seite ist dafür schon gestalterisch vorbereitet.</p>
+            <div class="tagrow"><span class="tag">login</span><span class="tag">rollen</span><span class="tag">gemeinsame termine</span></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="journal">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Abends kurz bleiben</p>
+          <h2>3 Fragen</h2>
+        </div>
+        <span class="pill">tagesjournal</span>
+      </div>
+      <article class="journal">
+        <h3>Heute kurz einsammeln</h3>
+        <div class="rule"></div>
+        <div class="question"><strong>Was war heute schön?</strong><div class="answer">Ein Blick, ein Geräusch, ein kleiner Moment, der weich geblieben ist.</div></div>
+        <div class="question"><strong>Was braucht morgen zuerst Liebe?</strong><div class="answer">Nicht gleich alles. Erst eine kleine Sache richtig anfangen.</div></div>
+        <div class="question"><strong>Was möchte ich nicht verlieren?</strong><div class="answer">Das Gefühl von Rudel, Höhle und einem Ort für kleine wichtige Zettel.</div></div>
+      </article>
+    </section>
+
+    <section class="footer-note">
+      <p class="kicker">Nächster Ausbauschritt</p>
+      <p style="margin:0;">Diese Seite ist die erste ruhige Projekt-Page. Danach kann daraus direkt wieder die klickbare App mit Firebase-Login und echtem Kalender werden.</p>
+    </section>
   </div>
 
   <script>
-    const state={route:'home',theme:'dark',boardFilter:'all',activeSticker:null,selectedMoment:null,journal:[
-      'Etwas Kleines, das geblieben ist.',
-      'Eine Sache, die sanft anfangen darf.',
-      'Ein Bild, ein Satz, ein Blick.'
-    ]};
-
-    const boardData=[
-      {group:'termine',title:'Mi 19:00 Gassi',tone:'pink'},
-      {group:'termine',title:'Do 10:00 Termin',tone:'gold'},
-      {group:'todos',title:'2 Dinge beantworten',tone:'green'},
-      {group:'todos',title:'Snackvorrat prüfen',tone:'pink'},
-      {group:'einkauf',title:'Hafermilch',tone:'gold'},
-      {group:'einkauf',title:'Hundesnacks',tone:'green'},
-      {group:'ideen',title:'Herbstalbum machen',tone:'rose'},
-      {group:'ideen',title:'Rudel-Ordner bauen',tone:'pink'}
-    ];
-
-    const moments=[
-      {id:'leitfigur',type:'Leitfigur',time:'Heute',title:'Du im Mittelpunkt',copy:'Nicht geschniegelt, sondern nah, weich und als echter Charakter der App.',img:'./IMG-20260904-WA0003.jpg'},
-      {id:'rudel',type:'Rudel',time:'Immer',title:'Gemeinsame Hauptkarte',copy:'Das Gruppenbild wirkt wie eine angepinnte Hauptnotiz eurer Höhle.',img:'./IMG-20260826-WA0007.jpg'},
-      {id:'wald',type:'Draußen',time:'Wald',title:'Kleines Abenteuer',copy:'Der kleine Hund bringt genau das leichte Abenteuergefühl hinein.',img:'./snapseed__1788538710416.jpg'}
-    ];
-
-    const app=document.getElementById('app');
-    const nav=[...document.querySelectorAll('.navbtn')];
     const toggle=document.querySelector('[data-theme-toggle]');
-
+    let theme='dark';
     toggle.addEventListener('click',()=>{
-      state.theme=state.theme==='dark'?'light':'dark';
-      document.documentElement.setAttribute('data-theme',state.theme);
-      toggle.textContent=state.theme==='dark'?'☾':'☀';
+      theme=theme==='dark'?'light':'dark';
+      document.documentElement.setAttribute('data-theme',theme);
+      toggle.textContent=theme==='dark'?'☾':'☀';
+      toggle.setAttribute('aria-label',theme==='dark'?'Zu hellem Modus wechseln':'Zu dunklem Modus wechseln');
     });
-
-    function renderHome(){
-      return `
-      <section class="stack">
-        <article class="hero">
-          <div class="hero-grid">
-            <div class="avatar-card">
-              <div class="avatar-frame"><img src="./IMG-20260904-WA0003.jpg" alt="Porträt als Hauptfigur der Pinnwandhöhle" width="843" height="1499" loading="eager"></div>
-              <p class="note">kleine heldin mit zetteln im haar</p>
-            </div>
-            <div class="hero-panel">
-              <div>
-                <p class="label">Begrüßung</p>
-                <h2 class="hero-title">Willkommen zurück, kleine Zettelsammlerin</h2>
-                <p class="copy">Diese Version ist wirklich klickbar: Navigation, Pinnwand-Filter, Sticker, Tagebuchfelder und Momentkarten reagieren direkt.</p>
-                <p class="note">mehr pinnwand als dashboard</p>
-              </div>
-              <div class="row">
-                <button class="btn btn-primary" data-route-jump="board">Zettelwand öffnen</button>
-                <button class="btn btn-moss" data-route-jump="journal">3 Fragen</button>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <section class="shelf">
-          <div class="head">
-            <div>
-              <p class="label">Angepinnt</p>
-              <p class="sub">Mehr Schichten, mehr Schräge, mehr Sammelgefühl.</p>
-            </div>
-          </div>
-          <div class="photo-rail">
-            <article class="photo" data-route-jump="moments">
-              <img src="./IMG-20260826-WA0007.jpg" alt="Gruppenfoto auf der Pinnwand" width="804" height="1428" loading="lazy">
-              <div class="caption"><strong>Rudelstart</strong><span>Tippen öffnet die Momentkarten.</span></div>
-            </article>
-            <article class="photo" data-route-jump="dogs">
-              <img src="./IMG-20260903-WA0010.jpg" alt="Hund in der Kuschelecke" width="804" height="1428" loading="lazy">
-              <div class="caption"><strong>Kuschelecke</strong><span>Tippen öffnet den Rudelbereich.</span></div>
-            </article>
-          </div>
-          <article class="note-card">
-            <h3>Warum es klickbarer ist</h3>
-            <div class="rule"></div>
-            <p>Jetzt lassen sich Bereiche wirklich antippen: du springst zwischen Ansichten, filterst Zettel, markierst Sticker und bearbeitest die drei Journal-Antworten direkt in der App.</p>
-            <div class="tagrow"><span class="tag">tap</span><span class="tag">filter</span><span class="tag">journal</span><span class="tag">momente</span></div>
-          </article>
-        </section>
-      </section>`;
-    }
-
-    function renderBoard(){
-      const groups=['all','termine','todos','einkauf','ideen'];
-      const filtered=state.boardFilter==='all'?boardData:boardData.filter(item=>item.group===state.boardFilter);
-      const toneMap={pink:'sticky-pink',green:'sticky-green',gold:'sticky-gold',rose:'sticky-rose'};
-      return `
-      <section class="stack">
-        <header>
-          <p class="label">Sammelwand</p>
-          <h2 class="screen-title">Pinnwand</h2>
-          <p class="muted">Tippe auf Filter und Sticker. Die Zettel reagieren direkt.</p>
-        </header>
-        <div class="filter-row">
-          ${groups.map(g=>`<button class="chip ${state.boardFilter===g?'active':''}" data-filter="${g}">${g}</button>`).join('')}
-        </div>
-        <section class="shelf">
-          <div class="board-layout">
-            <article class="board">
-              <h3>Heute an die Wand</h3>
-              <div class="rule"></div>
-              <div class="pincol">
-                ${filtered.map(item=>`<button class="sticky ${toneMap[item.tone]}" data-sticky="${item.title}"><h4>${item.group}</h4><ul><li>${item.title}</li></ul></button>`).join('')}
-              </div>
-            </article>
-            <div class="board-side">
-              <article class="sticker-cloud">
-                <p class="label">Stickerzeug</p>
-                <div class="sticker-row">
-                  ${['🐾 pfote','♡ herz','★ wow','☕ pause'].map(s=>`<button class="sticker ${state.activeSticker===s?'active':''}" data-sticker="${s}">${s}</button>`).join('')}
-                </div>
-                <p class="note">${state.activeSticker?`aktiv: ${state.activeSticker}`:'noch kein sticker gewählt'}</p>
-              </article>
-              <article class="note-card">
-                <h3>Mini-Hinweis</h3>
-                <div class="rule"></div>
-                <p>${state.boardFilter==='all'?'Zeigt gerade alle Zettel gemischt.':`Gerade gefiltert auf: ${state.boardFilter}.`}</p>
-              </article>
-            </div>
-          </div>
-        </section>
-      </section>`;
-    }
-
-    function renderJournal(){
-      const qs=['Was war heute schön?','Was braucht morgen zuerst Liebe?','Was möchte ich nicht verlieren?'];
-      return `
-      <section class="stack">
-        <header>
-          <p class="label">Tagesjournal</p>
-          <h2 class="screen-title">3 Fragen am Abend</h2>
-          <p class="muted">Die Antworten sind direkt antippbar und editierbar.</p>
-        </header>
-        <article class="journal">
-          <h3>Heute kurz einsammeln</h3>
-          <div class="rule"></div>
-          ${qs.map((q,i)=>`<section class="q"><strong>${q}</strong><div class="answer" contenteditable="true" role="textbox" aria-label="Antwort ${i+1}" data-answer-index="${i}">${state.journal[i]}</div></section>`).join('')}
-          <div class="row">
-            <button class="btn btn-primary" data-save-journal="true">Antworten merken</button>
-            <button class="btn" data-route-jump="moments">Als Karte sehen</button>
-          </div>
-          <p class="note" id="journal-status">Tippe in die Felder und schreibe direkt hinein.</p>
-        </article>
-      </section>`;
-    }
-
-    function renderMoments(){
-      const selected=moments.find(m=>m.id===state.selectedMoment) || moments[0];
-      return `
-      <section class="stack">
-        <header>
-          <p class="label">Momente</p>
-          <h2 class="screen-title">Angepinnte Karten</h2>
-          <p class="muted">Tippe auf eine Karte, um unten den Detailzettel zu wechseln.</p>
-        </header>
-        <div class="timeline">
-          ${moments.map(item=>`<button class="memory" data-moment="${item.id}"><div class="memory-top"><span class="chip">${item.type}</span><span class="muted">${item.time}</span></div><div class="preview"><img src="${item.img}" alt="Persönlicher Moment auf einer angepinnten Karte" width="804" height="1428" loading="lazy"></div><h3>${item.title}</h3><p class="copy">${item.copy}</p></button>`).join('')}
-        </div>
-        <article class="detail-sheet">
-          <p class="label">Detailzettel</p>
-          <h3>${selected.title}</h3>
-          <div class="rule"></div>
-          <p class="copy">${selected.copy}</p>
-          <div class="tagrow"><span class="tag">${selected.type}</span><span class="tag">${selected.time}</span></div>
-        </article>
-      </section>`;
-    }
-
-    function renderDogs(){
-      return `
-      <section class="stack">
-        <header>
-          <p class="label">Rudel</p>
-          <h2 class="screen-title">Pfoten an der Wand</h2>
-          <p class="muted">Auch hier sind die Karten antippbar und springen zu den Momenten zurück.</p>
-        </header>
-        <section class="shelf">
-          <div class="photo-rail">
-            <article class="photo" data-route-jump="moments"><img src="./IMG-20260903-WA0010.jpg" alt="Rottweiler im Hundebett" width="804" height="1428" loading="lazy"><div class="caption"><strong>Sofawache</strong><span>ruhig · warm · drinnen</span></div></article>
-            <article class="photo" data-route-jump="moments"><img src="./snapseed__1788538710416.jpg" alt="Kleiner Hund draußen am Wasser" width="804" height="1428" loading="lazy"><div class="caption"><strong>Moospfote</strong><span>neugierig · draußen · lebendig</span></div></article>
-          </div>
-          <article class="note-card">
-            <h3>Rudelnotiz</h3>
-            <div class="rule"></div>
-            <p>Mit noch mehr Fotos könnte daraus eine klickbare Hunde-Kartei mit Routinen, Gassi-Momenten und kleinen Gesundheitsnotizen werden.</p>
-          </article>
-        </section>
-      </section>`;
-    }
-
-    function render(){
-      const views={home:renderHome(),board:renderBoard(),journal:renderJournal(),moments:renderMoments(),dogs:renderDogs()};
-      app.innerHTML=views[state.route]||views.home;
-      nav.forEach(n=>n.classList.toggle('active',n.dataset.route===state.route));
-      bindInteractive();
-    }
-
-    function bindInteractive(){
-      app.querySelectorAll('[data-route-jump]').forEach(el=>el.addEventListener('click',()=>{state.route=el.dataset.routeJump;render();window.scrollTo({top:0,behavior:'smooth'})}));
-      app.querySelectorAll('[data-filter]').forEach(el=>el.addEventListener('click',()=>{state.boardFilter=el.dataset.filter;render();}));
-      app.querySelectorAll('[data-sticker]').forEach(el=>el.addEventListener('click',()=>{state.activeSticker=el.dataset.sticker;render();}));
-      app.querySelectorAll('[data-moment]').forEach(el=>el.addEventListener('click',()=>{state.selectedMoment=el.dataset.moment;render();window.scrollTo({top:0,behavior:'smooth'})}));
-      app.querySelectorAll('[data-answer-index]').forEach(el=>{
-        el.addEventListener('focus',()=>el.classList.add('is-editing'));
-        el.addEventListener('blur',()=>{el.classList.remove('is-editing');state.journal[Number(el.dataset.answerIndex)]=el.innerText.trim()||' ';});
-      });
-      const saveBtn=app.querySelector('[data-save-journal]');
-      if(saveBtn){saveBtn.addEventListener('click',()=>{const status=app.querySelector('#journal-status'); if(status) status.textContent='Antworten im aktuellen App-Zustand gemerkt.';});}
-    }
-
-    nav.forEach(n=>n.addEventListener('click',()=>{state.route=n.dataset.route;render();window.scrollTo({top:0,behavior:'smooth'})}));
-    render();
   </script>
 </body>
 </html>
