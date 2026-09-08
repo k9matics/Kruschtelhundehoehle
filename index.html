@@ -1,515 +1,59 @@
 <!doctype html>
-<html lang="de" data-theme="dark">
+<html lang="de">
 <head>
   <meta charset="utf-8">
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-  >
-  <meta name="theme-color" content="#080b0d">
-  <meta
-    name="description"
-    content="Harnelyzer analysiert die Bewegungsstabilität eines Hundegeschirrs im Vergleich zu einer persönlichen Referenzmessung."
-  >
-  <title>HARNELYZER</title>
-
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>Kruschtelhundehöhle · Tagesblätter</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=swap"
-    rel="stylesheet"
-  >
-
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Caveat:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#16141a;--bg2:#241e28;--paper:#f8f0e6;--ink:#33282d;--muted:#c6b9c0;--pink:#dc6d9a;--green:#8daf75;--warm:#efb467;--line:rgba(255,255,255,.13);--shadow:0 18px 46px rgba(0,0,0,.38);--display:'Baloo 2',sans-serif;--body:Nunito,sans-serif;--hand:Caveat,cursive}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(circle at 8% 0,rgba(220,109,154,.15),transparent 25%),radial-gradient(circle at 94% 15%,rgba(141,175,117,.12),transparent 21%),linear-gradient(150deg,var(--bg2),var(--bg));color:#fbf4ef;font:16px/1.45 var(--body)}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.17;background-image:radial-gradient(rgba(255,255,255,.35) .75px,transparent .75px);background-size:19px 19px}.app{position:relative;max-width:760px;margin:auto;padding:10px 13px 76px}.top{position:sticky;z-index:50;top:0;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 0 12px;background:linear-gradient(180deg,rgba(22,20,26,.98) 77%,rgba(22,20,26,0))}.brand{display:flex;align-items:center;gap:9px;min-width:0}.paw{font-size:28px;color:var(--pink)}.eyebrow{color:var(--muted);font-size:.67rem;letter-spacing:.11em;text-transform:uppercase;font-weight:800}.brand strong{display:block;font:800 1.34rem/.9 var(--display);white-space:nowrap}.top-actions{display:flex;gap:7px}.icon-btn,.add-btn{min-height:39px;border:1px solid var(--line);border-radius:14px;color:#fff;font-weight:800}.icon-btn{background:rgba(255,255,255,.06);padding:7px 10px}.icon-btn.connected{border-color:rgba(141,175,117,.9);color:#d7f0cc}.add-btn{border-color:transparent;background:var(--pink);padding:7px 11px}.intro{padding:7px 5px 15px}.intro h1{margin:0;font:800 clamp(1.65rem,7vw,2.6rem)/.92 var(--display)}.intro p{margin:6px 0 0;color:var(--muted)}.timeline{position:relative;display:grid;gap:25px}.timeline:before{content:"";position:absolute;left:50%;top:20px;bottom:20px;width:3px;transform:translateX(-50%);border-radius:99px;background:linear-gradient(var(--pink),var(--warm),var(--green))}.day-wrap{position:relative}.day-dot{position:absolute;left:50%;top:-8px;z-index:2;width:18px;height:18px;transform:translateX(-50%);border-radius:50%;border:4px solid var(--bg2);background:var(--warm);box-shadow:0 0 0 2px rgba(255,255,255,.15)}.day{position:relative;min-height:645px;padding:43px 13px 13px;overflow:hidden;border-radius:22px;background:linear-gradient(125deg,#fff9f0,var(--paper));color:var(--ink);box-shadow:var(--shadow)}.day:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.34;background:repeating-linear-gradient(0deg,transparent 0 30px,rgba(110,84,69,.13) 30px 31px)}.day-head{position:relative;z-index:3;display:flex;justify-content:space-between;gap:8px;align-items:flex-start;padding:0 4px 10px;border-bottom:2px dashed rgba(72,47,46,.22)}.day-date{font:800 1.75rem/.95 var(--display)}.day-sub{font:600 1.1rem/1 var(--hand);color:#895967}.day-actions{display:flex;gap:6px}.day-add,.day-cal{border:0;border-radius:12px;padding:7px 9px;background:#372a30;color:#fff;font-weight:800}.day-cal{background:#648453}.canvas{position:relative;z-index:2;height:541px;margin-top:11px}.empty{position:absolute;top:50%;left:50%;width:80%;transform:translate(-50%,-50%);color:#9a8582;text-align:center;font:600 1.35rem/1 var(--hand);pointer-events:none}.comic{position:relative;z-index:1;min-height:116px;padding:11px;overflow:hidden;border-radius:13px;background:#362f38;color:#fff}.comic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.38}.comic div{position:relative;max-width:78%;font:700 1.19rem/1.03 var(--hand);text-shadow:0 2px 4px #000}.comic small{display:block;margin-top:6px;font:700 .6rem var(--body);letter-spacing:.08em;text-transform:uppercase}.sticker{position:absolute;width:157px;min-height:119px;padding:11px;border:0;border-radius:14px;box-shadow:0 10px 20px rgba(65,42,40,.22);text-align:left;touch-action:none;user-select:none;cursor:grab;overflow:hidden}.sticker.dragging{z-index:10;cursor:grabbing}.sticker:before{content:"";position:absolute;right:8px;top:7px;width:11px;height:11px;border-radius:50%;background:#2b2529;box-shadow:0 1px 2px rgba(0,0,0,.35)}.sticker.text{background:linear-gradient(145deg,#f7c7da,#efabca);transform:rotate(-2deg)}.sticker.emoji{background:linear-gradient(145deg,#fae5ae,#f3ce80);transform:rotate(2deg)}.sticker.photo{padding:7px;background:#fffdf9;transform:rotate(-1deg)}.sticker.video{background:linear-gradient(145deg,#d5e9c8,#b8d8a7);transform:rotate(1.5deg)}.sticker.tiktok{background:linear-gradient(145deg,#eed0f4,#d7a9e4);transform:rotate(-1.5deg)}.sticker.calendar{background:linear-gradient(145deg,#c8e6ef,#a8d4e1);transform:rotate(1deg)}.sticker img{width:100%;height:82px;border-radius:9px;object-fit:cover}.sticker h3{margin:0 0 6px;padding-right:14px;font-size:.7rem;letter-spacing:.07em;text-transform:uppercase}.sticker p{margin:0;font-size:.85rem;line-height:1.18;font-weight:800}.sticker .author{position:absolute;left:9px;bottom:7px;font:700 .92rem/1 var(--hand);opacity:.8}.sticker .vision{position:absolute;right:7px;bottom:7px;padding:3px 5px;border-radius:7px;background:rgba(50,32,40,.13);font-size:.57rem;font-weight:800;text-transform:uppercase}.calendar .author{font-size:.77rem}.calendar .event-time{display:block;margin-bottom:4px;color:#1d5664;font-size:.72rem;font-weight:800}.nav{display:flex;justify-content:center;gap:8px;padding-top:15px}.nav a{color:var(--muted);border-bottom:1px dashed var(--muted);font-size:.78rem}.modal{position:fixed;z-index:90;inset:0;display:none;place-items:center;padding:17px;background:rgba(15,12,16,.76);backdrop-filter:blur(6px)}.modal.show{display:grid}.modal-card{width:min(490px,100%);max-height:92vh;overflow:auto;padding:19px;border-radius:22px;background:#2b252e;box-shadow:var(--shadow)}.modal-card h2{margin:0;font:800 1.85rem/.95 var(--display)}.close{float:right;border:0;background:transparent;color:#fff;font-size:1.45rem}.types{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:15px 0}.type{min-height:56px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.06);color:#fff;font-size:.71rem;font-weight:800}.type.active{outline:2px solid var(--pink);background:rgba(220,109,154,.22)}label{display:block;margin:10px 0 5px;color:var(--muted);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800}input,textarea{width:100%;padding:10px 11px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.06);color:#fff;font:inherit}textarea{min-height:82px;resize:vertical}.author-choice{display:flex;gap:8px}.person{flex:1;padding:9px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.05);color:#fff;font-weight:800}.person.active{outline:2px solid var(--green);background:rgba(141,175,117,.23)}.google-option{display:none;margin-top:12px;padding:10px;border:1px dashed rgba(141,175,117,.7);border-radius:12px;color:#daf0d0;font-size:.84rem}.google-option.show{display:block}.google-option input{width:auto;margin-right:8px}.save{width:100%;min-height:46px;margin-top:15px;border:0;border-radius:14px;background:var(--pink);color:#fff;font-size:1rem;font-weight:800}.hint{margin:9px 0 0;color:var(--muted);font-size:.8rem}.toast{position:fixed;z-index:100;bottom:18px;left:50%;padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:#17141a;color:#fff;font-weight:800;transform:translateX(-50%) translateY(80px);transition:.25s}.toast.show{transform:translateX(-50%) translateY(0)}@media(max-width:390px){.brand strong{font-size:1.14rem}.add-btn{padding:7px 8px}.day{padding-left:10px;padding-right:10px}.canvas{height:550px}.sticker{width:143px}.icon-btn{padding:7px 8px}}
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#mainContent">Zum Inhalt springen</a>
-
-  <header class="app-header">
-    <div class="brand-lockup">
-      <svg
-        class="brand-mark"
-        viewBox="0 0 2048 2048"
-        aria-label="Harnelyzer Logo"
-        role="img"
-      >
-        <path fill="rgb(176,204,105)" d="M 1013.94 129.11 C 1041.17 127.348 1055.43 138.274 1078.67 150.853 C 1091.65 157.799 1104.69 164.644 1117.78 171.388 L 1305.51 270.604 C 1415.35 328.058 1524.84 386.189 1633.97 444.995 L 1720.88 490.705 C 1732.79 496.914 1755.2 507.903 1765.96 514.663 C 1773.95 519.743 1780.23 527.097 1784.01 535.779 C 1786.17 540.764 1787.88 546.279 1787.91 551.714 C 1788.14 594.778 1787.96 638.082 1787.94 681.129 L 1787.83 943.66 L 1787.82 1339.88 C 1787.72 1390.83 1788.07 1441.83 1787.85 1492.77 C 1787.82 1500.24 1787.4 1504.31 1784.6 1511.31 C 1781.56 1518.88 1773.25 1529.26 1766.09 1533.35 C 1753.62 1540.45 1740.18 1547.32 1727.4 1554.04 L 1649.13 1595.23 L 1359.79 1748.45 L 1155.94 1856.17 L 1086.94 1892.39 C 1070.03 1901.19 1052.7 1910.79 1034.95 1917.57 C 1007.35 1921.78 981.636 1903.65 957.754 1891.06 C 934.921 1879.24 912.174 1867.24 889.515 1855.09 L 709.941 1760.36 L 465.331 1630.88 C 427.988 1611.35 390.747 1591.62 353.611 1571.69 C 331.105 1559.84 307.035 1548.16 285.055 1535.51 C 273.381 1528.91 264.929 1517.81 261.678 1504.8 C 259.362 1495.43 260.22 1439.37 260.224 1427.19 L 260.168 1257.58 L 260.004 788.785 C 260.012 710.516 259.762 632.068 260.053 553.791 C 260.092 543.212 261.224 539.756 266.463 530.502 C 270.681 523.052 279.62 515.615 287.287 511.574 C 322.41 493.061 357.656 474.589 392.647 455.822 L 715.924 284.662 L 894.5 189.927 C 918.947 176.548 943.557 163.468 968.324 150.691 C 979.838 144.675 1002.7 131.812 1013.94 129.11 z" />
-        <path fill="rgb(8,11,14)" d="M 968.868 1286.95 C 970.95 1292.78 969.192 1356.32 969.084 1366.23 C 949.889 1397.98 928.618 1428.11 908.877 1459.19 C 885.352 1496.23 862.911 1532.91 838.622 1569.61 C 862.147 1595.54 887.359 1619.97 912.083 1644.75 C 917.039 1649.72 922.122 1654.54 927.504 1659.05 C 954.382 1632.47 979.968 1605.21 1007.01 1578.64 C 976.236 1527.21 923.768 1485.75 1018.72 1494.26 C 1035.22 1495.74 1054.28 1492.58 1071.12 1495.01 C 1084.35 1496.93 1083.96 1502.64 1083.92 1513.1 C 1073.59 1532 1054.35 1559.39 1041.85 1578.46 C 1068.17 1604.31 1095.77 1633.65 1121.64 1660.25 C 1150.01 1630.1 1181.1 1599.12 1210.4 1569.78 C 1205.5 1563.58 1200.38 1556.21 1196.18 1549.46 C 1157.83 1487.88 1116.23 1427.58 1078.84 1365.48 L 1079.12 1286.9 C 1095.83 1307.92 1115.98 1329.82 1133.51 1350.85 L 1254.5 1498.68 C 1258.01 1503.08 1271.8 1520.92 1275.09 1523.15 C 1284.66 1529.63 1304.83 1536.09 1316.13 1540.58 C 1349.59 1553.89 1384.78 1564.89 1417.98 1578.6 C 1383.66 1599.03 1336.97 1622.55 1301.04 1641.59 L 1078.27 1759.32 C 1078.12 1736.06 1078.14 1712.79 1078.33 1689.53 C 1060.12 1671.95 1041.4 1654.39 1024.2 1635.88 C 1006.99 1654.15 987.897 1671.97 969.802 1689.56 C 970.223 1712.57 970.011 1736.35 970.085 1759.41 L 753.962 1644.91 C 712.372 1622.88 670.492 1601.44 629.637 1578.06 C 646.888 1570.96 664.134 1565.24 681.54 1558.71 L 772.444 1524.42 C 787.642 1506.48 802.486 1486.94 817.525 1468.65 C 867.415 1407.62 917.865 1347.05 968.868 1286.95 z" />
-        <path fill="rgb(8,11,14)" d="M 379.189 814.138 C 445.303 813.326 512.647 814.071 578.939 813.856 C 578.897 972.659 577.437 1134.13 579.265 1292.7 C 556.471 1305.16 533.586 1317.45 510.612 1329.58 C 467.278 1353.19 422.831 1376.45 379.104 1399.39 C 377.893 1328.53 378.948 1253.95 378.924 1182.81 L 379.189 814.138 z" />
-        <path fill="rgb(8,11,14)" d="M 1469.04 814.065 C 1534.92 813.372 1602.38 813.964 1668.31 814.085 L 1668.67 1134.44 C 1668.73 1222.3 1669.68 1311.56 1668.79 1399.29 L 1468.97 1292.65 L 1469.04 814.065 z" />
-        <path fill="rgb(8,11,14)" d="M 649.521 451.912 C 654.858 452.411 938.466 606.435 969.233 622.924 C 970.177 666.678 969.938 716.137 969.142 759.964 C 953.556 753.23 930.288 740.218 913.741 732.581 C 857.257 706.512 818.312 703.707 758.5 703.296 L 379.198 702.941 L 379.037 594.962 C 468.879 546.677 559.042 498.992 649.521 451.912 z" />
-        <path fill="rgb(8,11,14)" d="M 691.218 970.522 C 703.852 976.447 724.701 988.317 737.932 995.435 C 765.935 1010.5 800.117 1026.6 825.948 1043.99 C 830.627 1047.13 853.011 1075.23 857.731 1081.01 L 903.012 1136.05 C 912.383 1147.61 921.475 1160.02 931.329 1171.01 C 862.531 1243.13 795.599 1317.82 727.315 1390.49 C 697.586 1422.13 666.565 1449.22 634.377 1478.26 C 610.708 1500.37 586.542 1521.99 563.003 1544.22 C 551.753 1539.28 536.532 1530.74 525.225 1524.84 C 502.495 1513.08 479.887 1501.09 457.404 1488.87 C 473.044 1481.18 490.525 1471.06 506.327 1462.8 L 690.744 1364.68 C 691.479 1234.02 689.265 1100.92 691.218 970.522 z" />
-        <path fill="rgb(8,11,14)" d="M 1356.69 971.989 C 1357.61 983.989 1357.01 1003.9 1357.01 1016.34 L 1357.06 1099.32 L 1356.96 1364.93 C 1381.61 1376.63 1409.52 1392.34 1434 1405.31 L 1589.64 1488.89 C 1581.67 1493.96 1567.33 1501.2 1558.72 1505.84 L 1485.16 1544.5 C 1462.09 1523.88 1438.34 1501.25 1415.32 1480.21 C 1390.84 1458.49 1365.87 1435.35 1342.27 1412.6 C 1328.86 1399.67 1315.41 1384.11 1302.56 1370.45 C 1276.22 1342.61 1250.07 1314.59 1224.11 1286.39 C 1188.01 1247.91 1152.18 1209.16 1116.64 1170.15 C 1133.82 1148.62 1152.62 1126.84 1170.27 1105.3 C 1184.05 1088.49 1205.57 1060.56 1220.66 1046.51 C 1225.26 1042.23 1259.04 1024.56 1267.22 1020.14 C 1296.88 1003.78 1326.71 987.731 1356.69 971.989 z" />
-        <path fill="rgb(8,11,14)" d="M 1354.72 474.957 L 1356.43 475.298 C 1357.48 480.721 1356.94 492.936 1356.93 499.144 L 1356.94 541.19 L 1357.04 703.257 C 1236.31 703.286 1190.9 697.67 1079.92 759.851 L 1079.45 759.371 C 1078.15 754.285 1078.51 725.598 1078.5 718.924 C 1078.42 687.121 1078.52 655.318 1078.8 623.516 C 1093.82 614.784 1109.63 607.039 1124.97 598.835 L 1179.2 569.193 C 1236.54 538.065 1296.84 504.814 1354.72 474.957 z" />
-        <path fill="rgb(8,11,14)" d="M 1469.03 489.454 C 1515.36 512.293 1560.57 537.705 1606.33 561.554 C 1620.46 568.924 1655.77 589.002 1668.86 593.816 L 1668.81 702.982 L 1469.02 703.052 L 1469.03 489.454 z" />
-        <path fill="rgb(8,11,14)" d="M 691.256 814.495 C 745.935 814.127 801.762 811.339 854.402 829.127 C 870.544 834.581 883.309 841.57 898.459 848.369 C 927.322 861.322 944.511 870.255 969.684 889.652 L 969.88 991.824 C 969.901 1006.45 970.662 1033.89 969.374 1047.76 L 969.164 1048.29 C 965.364 1045.42 963.403 1042.79 960.331 1039.2 C 944.051 1021.51 928.201 1001.54 912.415 983.261 C 851.839 913.12 781.355 891.493 690.989 893.198 L 691.256 814.495 z" />
-        <path fill="rgb(8,11,14)" d="M 1316.36 814.492 L 1356.87 814.805 L 1356.78 893.226 C 1222.61 891.038 1180.22 929.035 1099.21 1025.58 C 1093.43 1032.84 1085.22 1041.74 1078.99 1048.88 C 1076.92 999.33 1078.08 940.983 1078.04 890.82 C 1101.87 871.833 1117.72 862.45 1145.33 849.871 C 1159.12 843.587 1170.96 836.43 1185.8 830.801 C 1228.53 814.588 1271.57 814.724 1316.36 814.492 z" />
-        <path fill="rgb(8,11,14)" d="M 967.874 282.904 C 967.934 282.957 968.002 283 968.053 283.061 C 971.014 286.612 969.336 469.392 969.259 494.111 C 926.706 471.664 884.421 448.713 842.413 425.261 C 822.777 413.344 793.366 398.711 772.281 387.206 C 788.578 376.903 818.121 362.351 835.991 352.881 L 967.874 282.904 z" />
-        <path fill="rgb(8,11,14)" d="M 1079 283.43 C 1100.43 292.63 1127.81 308.136 1148.99 319.28 L 1275.62 386.85 C 1252.82 398.706 1228.91 412.476 1206.23 424.929 L 1078.14 494.522 C 1079.21 424.299 1077.91 353.745 1079 283.43 z" />
-      </svg>
-
-      <h1>
-        <span id="appName">HARNELYZER</span>
-        <span id="appVersion" class="version">v0.2.0</span>
-      </h1>
-    </div>
-
-    <div class="header-actions">
-      <span id="connectionStatus" class="connection-status" aria-live="polite">
-        OFFLINE
-      </span>
-      <button
-        id="btnConnect"
-        class="btn btn-connect"
-        type="button"
-      >
-        SENSOR
-      </button>
-    </div>
+<main class="app">
+  <header class="top">
+    <div class="brand"><span class="paw">⌁</span><div><span class="eyebrow">Unsere Steintafel</span><strong>Kruschtelhundehöhle</strong></div></div>
+    <div class="top-actions"><button class="icon-btn" id="theme" title="Ansicht">☾</button><button class="icon-btn" id="calendar" title="Google Kalender verbinden">📅</button><button class="add-btn" id="add">＋ Anheften</button></div>
   </header>
-
-  <main id="mainContent" class="app-main">
-    <section class="sensor-panel" aria-labelledby="sensorPanelTitle">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">SENSOR-SETUP</p>
-          <h2 id="sensorPanelTitle">AKTIVE SENSORROLLEN</h2>
-        </div>
-        <button
-          id="btnCalib"
-          class="btn btn-calib"
-          type="button"
-        >
-          KALIBRIEREN
-        </button>
-      </div>
-
-      <div id="sensorSlots" class="sensor-slots" aria-live="polite">
-        <div class="sensor-slot is-active">
-          <span class="sensor-dot"></span>
-          <span class="sensor-role">RÜCKEN / GESCHIRR</span>
-          <span class="sensor-state">BEREIT</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="routine-panel" aria-labelledby="routineTitle">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">GESCHIRR-CHECK</p>
-          <h2 id="routineTitle">MESSROUTINE</h2>
-        </div>
-        <span id="routineState" class="routine-state">SCHRITT 1 / 3</span>
-      </div>
-
-      <ol class="routine-steps" aria-label="Messablauf">
-        <li id="stepReference" class="routine-step is-active">
-          <span class="step-number">01</span>
-          <div class="step-copy">
-            <strong>REFERENZ</strong>
-            <span>Ohne Geschirr, Sensor sicher befestigt.</span>
-          </div>
-          <span id="referenceState" class="step-state">OFFEN</span>
-        </li>
-
-        <li id="stepHarness" class="routine-step">
-          <span class="step-number">02</span>
-          <div class="step-copy">
-            <strong>GESCHIRR-TEST</strong>
-            <span>Gleiche natürliche Runde mit Geschirr.</span>
-          </div>
-          <span id="harnessState" class="step-state">GESPERRT</span>
-        </li>
-
-        <li id="stepCompare" class="routine-step">
-          <span class="step-number">03</span>
-          <div class="step-copy">
-            <strong>VERGLEICH</strong>
-            <span>Passform und Laufbild gegen Referenz.</span>
-          </div>
-          <span id="compareState" class="step-state">WARTET</span>
-        </li>
-      </ol>
-
-      <div id="routineGuide" class="routine-guide" aria-live="polite">
-        <div class="guide-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="8 5 16 12 8 19"></polyline>
-          </svg>
-        </div>
-        <div>
-          <h3 id="guideTitle">REFERENZ OHNE GESCHIRR</h3>
-          <p id="guideText">
-            Befestige den Sensor sicher am Rücken. Lass den Hund anschließend
-            20–40 Sekunden entspannt und natürlich laufen.
-          </p>
-        </div>
-      </div>
-
-      <div class="routine-actions">
-        <button
-          id="btnStartReference"
-          class="btn btn-primary"
-          type="button"
-        >
-          REFERENZ STARTEN
-        </button>
-
-        <button
-          id="btnStartHarness"
-          class="btn btn-secondary"
-          type="button"
-          disabled
-        >
-          TEST A STARTEN
-        </button>
-
-        <button
-          id="btnFinishSession"
-          class="btn btn-stop"
-          type="button"
-          disabled
-        >
-          MESSUNG BEENDEN
-        </button>
-      </div>
-
-      <div class="routine-meta">
-        <span id="activeSessionLabel">KEINE MESSUNG AKTIV</span>
-        <span id="sessionTimer">00:00</span>
-        <span id="qualityIndicator" class="quality-indicator">
-          QUALITÄT: WARTET
-        </span>
-      </div>
-    </section>
-
-    <section class="score-panel" aria-labelledby="scoreTitle">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">ENDNUTZER-ERGEBNIS</p>
-          <h2 id="scoreTitle">GESCHIRR-BEWERTUNG</h2>
-        </div>
-        <span id="comparisonStatus" class="comparison-status">
-          REFERENZ AUSSTEHEND
-        </span>
-      </div>
-
-      <div class="score-grid">
-        <article class="score-card" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Testbericht zu Passform öffnen">
-          <span>PASSFORM</span>
-          <strong id="scoreFit">—</strong>
-          <small id="scoreFitLabel">REFERENZ ERFORDERLICH</small>
-        </article>
-
-        <article class="score-card" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Testbericht zu Stabilität öffnen">
-          <span>STABILITÄT</span>
-          <strong id="scoreStability">—</strong>
-          <small id="scoreStabilityLabel">—</small>
-        </article>
-
-        <article class="score-card" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Testbericht zu Laufbild öffnen">
-          <span>LAUFBILD</span>
-          <strong id="scoreMovement">—</strong>
-          <small id="scoreMovementLabel">—</small>
-        </article>
-
-        <article class="score-card" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Testbericht zu Symmetrie öffnen">
-          <span>SYMMETRIE</span>
-          <strong id="scoreSymmetry">—</strong>
-          <small id="scoreSymmetryLabel">—</small>
-        </article>
-      </div>
-
-      <button id="btnOpenResult" class="btn btn-secondary result-open-btn" type="button">
-        TESTBERICHT ANZEIGEN
-      </button>
-
-      <div id="resultSummary" class="result-summary" aria-live="polite">
-        Starte mit einer Referenzmessung ohne Geschirr. Die App vergleicht
-        später nur ausreichend ähnliche Bewegungsphasen.
-      </div>
-    </section>
-
-    <section class="live-panel" aria-labelledby="liveTitle">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">TECHNISCHE LIVE-ANSICHT</p>
-          <h2 id="liveTitle">BEWEGUNGSSENSOR</h2>
-        </div>
-
-        <span class="scene3d-hint">ZIEHEN ZUM DREHEN · PLATZHALTER-MODELL</span>
-      </div>
-
-      <div class="live-kpis">
-        <div class="live-kpi">
-          <span>GANGART</span>
-          <strong id="kpiGait">—</strong>
-        </div>
-
-        <div class="live-kpi">
-          <span>RHYTHMUS</span>
-          <strong id="kpiCadence">0</strong>
-        </div>
-
-        <div class="live-kpi">
-          <span>REGELMÄSSIG</span>
-          <strong id="kpiRegularity">0%</strong>
-        </div>
-
-        <div class="live-kpi">
-          <span>ASYMMETRIE</span>
-          <strong id="kpiAsymmetry">0%</strong>
-        </div>
-      </div>
-
-      <div
-        id="hudRadar"
-        class="hud-radar"
-        role="button"
-        tabindex="0"
-        aria-label="Kamera für Gangaufnahme öffnen"
-        aria-haspopup="dialog"
-      >
-        <div class="radar-grid radar-grid-horizontal"></div>
-        <div class="radar-grid radar-grid-vertical"></div>
-        <div class="radar-ring radar-ring-large"></div>
-        <div class="radar-ring radar-ring-small"></div>
-        <div class="radar-crosshair" aria-hidden="true">
-          <span class="radar-crosshair__horizontal"></span>
-          <span class="radar-crosshair__vertical"></span>
-          <span class="radar-crosshair__center"></span>
-        </div>
-        <span class="hud-label">HARNESS MOTION FIELD · KAMERA</span>
-        <span id="tiltValue" class="hud-tilt">TILT: 0.0°</span>
-        <span id="hudCoords" class="hud-coords">X:0.00 Y:0.00</span>
-      </div>
-
-      <div class="chart-container scene3d-container" id="scene3dHomeSlot">
-        <canvas id="scene3dCanvas" aria-label="3D Bewegungsansicht mit Platzhaltermodell"></canvas>
-      </div>
-
-      <div class="analysis-panel">
-        <div class="analysis-row">
-          <span>BEWEGUNGSINTENSITÄT</span>
-          <strong id="motionValue">0.00 g</strong>
-        </div>
-
-        <div class="analysis-row">
-          <span>NEIGUNG LINKS / RECHTS</span>
-          <strong id="rollValue">0.0°</strong>
-        </div>
-
-        <div class="analysis-row">
-          <span>NEIGUNG VORNE / HINTEN</span>
-          <strong id="pitchValue">0.0°</strong>
-        </div>
-
-        <div class="analysis-row">
-          <span>STATUS</span>
-          <strong id="analysisStatus">BEREIT</strong>
-        </div>
-      </div>
-
-      <p id="debugRaw" class="debug-raw">NO DATA</p>
-    </section>
-
-    <section class="utility-actions" aria-label="Datenaktionen">
-      <button id="btnDemo" class="btn btn-utility" type="button">
-        DEMO
-      </button>
-
-      <button id="btnResetStudy" class="btn btn-utility btn-danger" type="button">
-        NEUSTART
-      </button>
-    </section>
-  </main>
-
-  <dialog id="calibrationDialog" class="calibration-dialog">
-    <form method="dialog" class="calibration-box">
-      <p class="eyebrow">SENSOR-AUSRICHTUNG</p>
-      <h2>KALIBRIERUNG</h2>
-
-      <div class="calibration-steps">
-        <p><span>1</span> Sensor am Rücken gerade und fest befestigen.</p>
-        <p><span>2</span> Hund ruhig und eben hinstellen lassen.</p>
-        <p><span>3</span> Geschirr und Sensor drei Sekunden nicht bewegen.</p>
-        <p><span>4</span> Dann Kalibrierung starten.</p>
-      </div>
-
-      <p id="calibrationHelp" class="calibration-help">
-        Der Sensor nutzt diese ruhige Position als Ausgangslage.
-      </p>
-
-      <div class="calibration-actions">
-        <button
-          id="btnCalibStart"
-          class="btn btn-primary"
-          type="button"
-        >
-          JETZT KALIBRIEREN
-        </button>
-
-        <button
-          id="btnCalibClose"
-          class="btn btn-secondary"
-          type="submit"
-        >
-          ABBRECHEN
-        </button>
-      </div>
-    </form>
-  </dialog>
-
-  <dialog id="cameraDialog" class="camera-dialog" aria-labelledby="cameraTitle">
-    <section class="camera-dialog__panel">
-      <header class="camera-dialog__header">
-        <div>
-          <p class="eyebrow">VIDEO-REFERENZ</p>
-          <h2 id="cameraTitle">GANGAUFNAHME</h2>
-        </div>
-        <button
-          id="btnCameraClose"
-          class="btn btn-secondary camera-close"
-          type="button"
-          aria-label="Gangaufnahme schließen"
-        >
-          SCHLIESSEN
-        </button>
-      </header>
-
-      <p class="camera-dialog__guide">
-        Seitlich filmen · alle Pfoten sichtbar · gerade, möglichst ebene Strecke.
-        Das Video bleibt auf diesem Gerät.
-      </p>
-
-      <div class="camera-stage">
-        <video id="cameraPreview" class="camera-preview" autoplay muted playsinline></video>
-        <video id="cameraPlayback" class="camera-playback" controls playsinline hidden></video>
-
-        <div class="camera-hud" aria-hidden="true">
-          <span class="camera-hud__label">SENSOR-REFERENZ</span>
-          <span class="camera-hud__crosshair">
-            <i></i><b></b><em></em>
-          </span>
-          <span id="cameraSensorState" class="camera-hud__state">BEREIT</span>
-        </div>
-      </div>
-
-      <p id="cameraStatus" class="camera-status" role="status" aria-live="polite">
-        Kamera ist noch nicht aktiviert.
-      </p>
-
-      <div class="camera-dialog__actions">
-        <button id="btnCameraEnable" class="btn btn-primary" type="button">
-          KAMERA AKTIVIEREN
-        </button>
-        <button id="btnCameraRecord" class="btn btn-stop" type="button" disabled>
-          AUFNAHME STARTEN
-        </button>
-        <button id="btnCameraDiscard" class="btn btn-secondary" type="button" disabled>
-          AUFNAHME VERWERFEN
-        </button>
-      </div>
-    </section>
-  </dialog>
-
-  <dialog id="resultDialog" class="result-dialog" aria-labelledby="resultDialogTitle">
-    <section class="result-dialog__panel">
-      <header class="result-dialog__header">
-        <div>
-          <p class="eyebrow">TESTBERICHT</p>
-          <h2 id="resultDialogTitle">GESCHIRR-VERGLEICH</h2>
-        </div>
-        <button
-          id="btnResultClose"
-          class="btn btn-secondary result-dialog__close"
-          type="button"
-          aria-label="Testbericht schließen"
-        >
-          SCHLIESSEN
-        </button>
-      </header>
-
-      <div id="resultVerdict" class="result-verdict">
-        Noch keine ausreichenden Daten für einen Vergleich.
-      </div>
-
-      <div class="result-dialog__body">
-        <div class="result-visuals">
-          <div class="result-chart">
-            <canvas id="resultRadarChart" aria-label="Vergleichsdiagramm Passform, Stabilität, Laufbild, Symmetrie"></canvas>
-          </div>
-
-          <div
-            class="result-chart result-chart--3d scene3d-container"
-            id="resultScene3dSlot"
-            aria-label="3D Bewegungsansicht mit Platzhaltermodell"
-          ></div>
-        </div>
-
-        <div class="result-scorelist" id="resultScoreList">
-          <div class="result-scorelist__row" data-score="fit">
-            <span>PASSFORM</span>
-            <strong>—</strong>
-            <small>—</small>
-          </div>
-          <div class="result-scorelist__row" data-score="stability">
-            <span>STABILITÄT</span>
-            <strong>—</strong>
-            <small>—</small>
-          </div>
-          <div class="result-scorelist__row" data-score="movement">
-            <span>LAUFBILD</span>
-            <strong>—</strong>
-            <small>—</small>
-          </div>
-          <div class="result-scorelist__row" data-score="symmetry">
-            <span>SYMMETRIE</span>
-            <strong>—</strong>
-            <small>—</small>
-          </div>
-        </div>
-      </div>
-
-      <table class="result-table" id="resultDetailTable">
-        <thead>
-          <tr>
-            <th>MESSUNG</th>
-            <th>GANGART</th>
-            <th>KADENZ</th>
-            <th>DAUER</th>
-            <th>QUALITÄT</th>
-          </tr>
-        </thead>
-        <tbody id="resultDetailBody">
-          <tr>
-            <td colspan="5">Keine Messdaten vorhanden.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="result-dialog__actions">
-        <button id="btnResultCsv" class="btn btn-utility" type="button">
-          CSV EXPORTIEREN
-        </button>
-        <button id="btnResultPdf" class="btn btn-utility" type="button">
-          PDF EXPORTIEREN
-        </button>
-      </div>
-    </section>
-  </dialog>
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-
-  <script src="version.js"></script>
-  <script src="analysis.js"></script>
-  <script src="storage.js"></script>
-  <script src="sensor.js"></script>
-  <script src="scene3d.js"></script>
-  <script src="pdf.js"></script>
-  <script src="app.js"></script>
+  <section class="intro"><h1>Ein Blatt. Ein Tag.<br>Alles, was bleibt.</h1><p>Scroll durch unsere Tage. Kalendertermine werden als blaue Sticker angeheftet.</p></section>
+  <section class="timeline" id="timeline"></section>
+  <nav class="nav"><a href="#yesterday">Gestern</a><a href="#today">Heute</a><a href="#tomorrow">Morgen</a></nav>
+</main>
+<div class="modal" id="modal"><div class="modal-card"><button class="close" id="close">×</button><h2>Etwas anheften</h2><p class="hint">Wähle Sticker und Absender. Dein Beitrag landet auf dem geöffneten Tagesblatt.</p><div class="types"><button class="type active" data-type="text">📝<br>Text</button><button class="type" data-type="photo">📷<br>Foto</button><button class="type" data-type="video">▶<br>Video</button><button class="type" data-type="tiktok">♪<br>TikTok</button><button class="type" data-type="emoji">🐾<br>Emoji</button></div><label>Von wem?</label><div class="author-choice"><button class="person active" data-author="Du">🖤 Du</button><button class="person" data-author="Deniz">🩷 Deniz</button></div><label id="field-label">Dein Gedanke</label><textarea id="content" placeholder="Was soll auf die Steintafel?"></textarea><label id="url-label" style="display:none">Bild- oder Video-Link</label><input id="url" style="display:none" placeholder="https://..."><div class="google-option" id="google-option"><label><input type="checkbox" id="save-calendar"> Auch als Google-Kalendertermin speichern</label><label>Beginn (Uhrzeit)</label><input id="event-time" type="time" value="18:00"><label>Dauer in Minuten</label><input id="event-duration" type="number" min="5" value="60"></div><p class="hint" id="form-hint">Text, eine Erinnerung oder ein kleiner Tagesgedanke.</p><button class="save" id="save">Anheften</button></div></div>
+<div class="toast" id="toast">An die Steintafel geheftet</div>
+<script>
+const GOOGLE_CLIENT_ID='651510406937-hkqf2nfqil7hcsngpcb0u3jimicntuhh.apps.googleusercontent.com';
+const CALENDAR_ID='da48d230c4a5b0b24faef579666c1f714f46597613d80c144494bfe15db25b37@group.calendar.google.com';
+const CALENDAR_SCOPE='https://www.googleapis.com/auth/calendar.events';
+const KEY='kruschtel-tagesblaetter-v3';
+let googleToken='',tokenClient=null;
+const days=[
+  {id:'yesterday',date:'Gestern',sub:'Die Höhle war schon voll Liebe.',comic:'IMG-20260826-WA0006.jpg',line:'Ein Abend, zwei Hunde und genau genug Platz für alle.'},
+  {id:'today',date:'Heute',sub:'Unser Blatt für alles, was hängen bleibt.',comic:'IMG-20260826-WA0008.jpg',line:'Pino und Ferox wissen: Zuhause ist da, wo wir zusammen sind.'},
+  {id:'tomorrow',date:'Morgen',sub:'Ein Platz für die Vorfreude.',comic:'1788799139981.jpg',line:'Comic-Vision: Irgendwann kommt Letti zu uns – heute ist sie noch nicht da.'}
+];
+const seed={yesterday:[{id:'a',type:'photo',author:'Deniz',content:'Höhlenzeit',url:'IMG-20260826-WA0006.jpg',x:18,y:135},{id:'b',type:'text',author:'Du',content:'Heute war es genau richtig: nur zusammen.',x:196,y:242}],today:[{id:'c',type:'text',author:'Deniz',content:'Mein Lieblingsrudel. 🖤',x:14,y:138},{id:'d',type:'photo',author:'Du',content:'Zuhause',url:'IMG-20260826-WA0008.jpg',x:196,y:252},{id:'e',type:'emoji',author:'Deniz',content:'🐾',x:33,y:370}],tomorrow:[{id:'f',type:'text',author:'Du',content:'Letti: ein Zukunftsbild, noch kein echtes Treffen.',x:18,y:136},{id:'g',type:'photo',author:'Deniz',content:'Comic-Vision',url:'1788799139981.jpg',x:192,y:255,vision:true}]};
+let state={notes:JSON.parse(JSON.stringify(seed)),calendarNotes:{}};try{const stored=JSON.parse(localStorage.getItem(KEY));if(stored)state={...state,...stored}}catch(e){}
+const timeline=document.getElementById('timeline'),toast=document.getElementById('toast');
+function showToast(message){toast.textContent=message;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2300)}
+function saveState(){localStorage.setItem(KEY,JSON.stringify(state))}
+function esc(v){return String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function localDay(dayId){const d=new Date();d.setHours(12,0,0,0);if(dayId==='yesterday')d.setDate(d.getDate()-1);if(dayId==='tomorrow')d.setDate(d.getDate()+1);return d}
+function localISO(dayId){const d=localDay(dayId);const p=n=>String(n).padStart(2,'0');return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`}
+function prettyDate(dayId){const d=localDay(dayId);return d.toLocaleDateString('de-DE',{weekday:'long',day:'2-digit',month:'long'})}
+function sticker(n){let inner='';if(n.type==='photo')inner=`<img src="${esc(n.url)}" alt="${esc(n.content)}"><p>${esc(n.content)}</p>`;else if(n.type==='video')inner=`<h3>▶ YouTube</h3><p>${esc(n.content)}</p>`;else if(n.type==='tiktok')inner=`<h3>♪ TikTok</h3><p>${esc(n.content)}</p>`;else if(n.type==='calendar')inner=`<h3>📅 Kalender</h3><span class="event-time">${esc(n.time||'Ganztägig')}</span><p>${esc(n.content)}</p>`;else if(n.type==='emoji')inner=`<p style="font-size:3rem;text-align:center;margin:8px 0">${esc(n.content)}</p>`;else inner=`<h3>Notiz</h3><p>${esc(n.content)}</p>`;return `<button class="sticker ${n.type}" style="left:${n.x}px;top:${n.y}px" data-id="${esc(n.id)}">${inner}<span class="author">${n.type==='calendar'?'Google Kalender':'von '+esc(n.author)}</span>${n.vision?'<span class="vision">Comic-Vision</span>':''}</button>`}
+function render(){timeline.innerHTML=days.map(d=>{const normal=state.notes[d.id]||[],cal=state.calendarNotes[d.id]||[],all=[...normal,...cal];return `<div class="day-wrap" id="${d.id}"><span class="day-dot"></span><article class="day"><header class="day-head"><div><div class="day-date">${d.id==='today'?'Heute · ':''}${prettyDate(d.id)}</div><div class="day-sub">${d.sub}</div></div><div class="day-actions"><button class="day-cal" data-load="${d.id}" title="Kalendertermine laden">📅</button><button class="day-add" data-day="${d.id}">＋</button></div></header><div class="canvas" data-canvas="${d.id}"><div class="comic"><img src="${d.comic}" alt="Comicbild"><div>${d.line}<small>${d.id==='tomorrow'?'Zukunftsgeschichte · nicht passiert':'Unser echtes Kapitel'}</small></div></div>${all.map(sticker).join('')}<div class="empty" ${all.length?'style="display:none"':''}>Hier ist Platz für euren ersten Sticker.</div></div></article></div>`}).join('');document.querySelectorAll('.sticker').forEach(el=>{const day=el.closest('.canvas').dataset.canvas;const n=[...(state.notes[day]||[]),...(state.calendarNotes[day]||[])].find(x=>x.id===el.dataset.id);if(!n)return;if(!n.calendar)bindDrag(el,n);el.addEventListener('click',()=>{if((n.type==='video'||n.type==='tiktok'||n.type==='calendar')&&n.url)window.open(n.url,'_blank','noopener')})});document.querySelectorAll('.day-add').forEach(b=>b.onclick=()=>openModal(b.dataset.day));document.querySelectorAll('[data-load]').forEach(b=>b.onclick=()=>{if(!googleToken)connectCalendar();else loadCalendarDay(b.dataset.load)})}
+function bindDrag(el,n){let active=false,sx,sy,ox,oy;el.addEventListener('pointerdown',e=>{active=true;el.setPointerCapture(e.pointerId);el.classList.add('dragging');sx=e.clientX;sy=e.clientY;ox=n.x;oy=n.y});el.addEventListener('pointermove',e=>{if(!active)return;const c=el.closest('.canvas');n.x=Math.max(0,Math.min(c.clientWidth-el.offsetWidth,ox+e.clientX-sx));n.y=Math.max(122,Math.min(c.clientHeight-el.offsetHeight,oy+e.clientY-sy));el.style.left=n.x+'px';el.style.top=n.y+'px'});const end=()=>{if(active){active=false;el.classList.remove('dragging');saveState()}};el.addEventListener('pointerup',end);el.addEventListener('pointercancel',end)}
+function googleReady(){return window.google&&google.accounts&&google.accounts.oauth2}
+function connectCalendar(){if(!googleReady()){showToast('Google lädt noch – bitte gleich erneut tippen');return}tokenClient=google.accounts.oauth2.initTokenClient({client_id:GOOGLE_CLIENT_ID,scope:CALENDAR_SCOPE,callback:async response=>{if(response.error){showToast('Kalender-Verbindung abgebrochen');return}googleToken=response.access_token;document.getElementById('calendar').classList.add('connected');showToast('Google Kalender verbunden');await loadAllCalendarDays()}});tokenClient.requestAccessToken({prompt:'consent'})}
+async function loadCalendarDay(dayId){if(!googleToken)return;const start=localDay(dayId);start.setHours(0,0,0,0);const end=new Date(start);end.setDate(end.getDate()+1);const query=new URLSearchParams({timeMin:start.toISOString(),timeMax:end.toISOString(),singleEvents:'true',orderBy:'startTime'});try{const response=await fetch(`https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(CALENDAR_ID)}/events?${query}`,{headers:{Authorization:`Bearer ${googleToken}`}});if(!response.ok)throw new Error('calendar');const data=await response.json();state.calendarNotes[dayId]=data.items.map((event,i)=>{const raw=event.start?.dateTime;const time=raw?new Date(raw).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'}):'Ganztägig';return{id:'google-'+event.id,type:'calendar',calendar:true,author:'Google Kalender',content:event.summary||'Ohne Titel',time,url:event.htmlLink||'',x:10+(i%2)*173,y:132+Math.floor(i/2)*138}});saveState();render();showToast(`${data.items.length} Kalendertermin(e) geladen`)}catch(e){showToast('Kalendertermine konnten nicht geladen werden')}}
+async function loadAllCalendarDays(){await Promise.all(days.map(d=>loadCalendarDay(d.id)))}
+async function createCalendarEvent(dayId,title,author,time,duration){if(!googleToken){showToast('Erst Google Kalender verbinden');return null}const date=localISO(dayId);const start=new Date(`${date}T${time}:00`);const end=new Date(start.getTime()+Math.max(5,Number(duration)||60)*60000);try{const response=await fetch(`https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(CALENDAR_ID)}/events`,{method:'POST',headers:{Authorization:`Bearer ${googleToken}`,'Content-Type':'application/json'},body:JSON.stringify({summary:title,description:`Kruschtelhundehöhle · gepostet von ${author}`,start:{dateTime:start.toISOString(),timeZone:'Europe/Berlin'},end:{dateTime:end.toISOString(),timeZone:'Europe/Berlin'}})});if(!response.ok)throw new Error('insert');return await response.json()}catch(e){showToast('Termin konnte nicht gespeichert werden');return null}}
+let selectedType='text',selectedAuthor='Du',selectedDay='today';const modal=document.getElementById('modal'),content=document.getElementById('content'),url=document.getElementById('url'),urlLabel=document.getElementById('url-label'),fieldLabel=document.getElementById('field-label'),hint=document.getElementById('form-hint'),googleOption=document.getElementById('google-option');function updateForm(){document.querySelectorAll('.type').forEach(b=>b.classList.toggle('active',b.dataset.type===selectedType));const link=['photo','video','tiktok'].includes(selectedType);url.style.display=urlLabel.style.display=link?'block':'none';googleOption.classList.toggle('show',selectedType==='text');fieldLabel.textContent=selectedType==='emoji'?'Emoji':selectedType==='photo'?'Bildtitel':selectedType==='video'?'Videotitel':selectedType==='tiktok'?'TikTok-Titel':'Dein Gedanke';content.placeholder=selectedType==='emoji'?'z. B. 🐾 oder ❤️':selectedType==='photo'?'z. B. Unser Moment':selectedType==='video'?'z. B. Lieblingsvideo':'Was soll auf die Steintafel?';hint.textContent=selectedType==='text'?'Jeder Sticker zeigt, ob er von Deniz oder dir ist.':'Bild-/Video-Link einfügen. Beim Sticker wird der Link geöffnet.'}function openModal(day='today'){selectedDay=day;document.getElementById('save-calendar').checked=false;modal.classList.add('show');updateForm();content.focus()}document.getElementById('add').onclick=()=>openModal('today');document.getElementById('close').onclick=()=>modal.classList.remove('show');modal.onclick=e=>{if(e.target===modal)modal.classList.remove('show')};document.querySelectorAll('.type').forEach(b=>b.onclick=()=>{selectedType=b.dataset.type;updateForm()});document.querySelectorAll('.person').forEach(b=>b.onclick=()=>{selectedAuthor=b.dataset.author;document.querySelectorAll('.person').forEach(x=>x.classList.toggle('active',x===b))});document.getElementById('save').onclick=async()=>{let value=content.value.trim();if(!value){showToast('Schreib erst etwas hinein');return}const note={id:'n'+Date.now(),type:selectedType,author:selectedAuthor,content:value,url:url.value.trim(),x:Math.max(8,Math.floor(Math.random()*155)),y:132+Math.floor(Math.random()*290)};state.notes[selectedDay].push(note);if(selectedType==='text'&&document.getElementById('save-calendar').checked){const event=await createCalendarEvent(selectedDay,value,selectedAuthor,document.getElementById('event-time').value,document.getElementById('event-duration').value);if(event)note.calendarEventId=event.id}saveState();modal.classList.remove('show');content.value='';url.value='';render();showToast('An die Steintafel geheftet')};document.getElementById('calendar').onclick=()=>{if(googleToken)loadAllCalendarDays();else connectCalendar()};document.getElementById('theme').onclick=()=>{document.body.classList.toggle('soft')};render();
+</script>
 </body>
 </html>
